@@ -2,7 +2,7 @@ let socket;
 let btnJump = document.getElementById("btn_jump");
 let btnShoot = document.getElementById("btn_shoot");
 
-socket = io("http://10.155.96.139:3000");
+socket = io("https://blooming-shore-50486.herokuapp.com/");
 socket.on("connection success", () => {
   console.log("controller connected successfully to the server!");
 

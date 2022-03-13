@@ -9,23 +9,32 @@ const io = new Server(httpServer);
 let viewers = [];
 let controllers = [];
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/Public"));
 
 io.on("connection", (socket) => {
-  console.log("a user connected");
+  console.log("User connected: " + socket.id);
   io.to(socket.id).emit("connection success", "connected successfully");
-  socket.on("disconnect", () => {
-    console.log("user disconnected");
+  socket.on("disconnect", (reason) => {
+    console.log("User disconnected. " + socket.id + " Reason: " + reason);
   });
 
   socket.on("register viewer", () => {
     viewers.push(socket);
-    console.log("a viewer registered");
+    console.log("Viewer registered: " + socket.id);
+    socket.on("disconnect", () => {
+      viewers.splice(viewers.indexOf(socket), 1);
+      console.log("Viewer " + socket.id + " unsubscribed.");
+    });
   });
 
   socket.on("register controller", () => {
+    socket.on("disconnect", () => {
+      viewers.splice(controllers.indexOf(socket), 1);
+      console.log("Controller " + socket.id + " unsubscribed.");
+    });
+
     controllers.push(socket);
-    console.log("a controller registered");
+    console.log("Controller registered: " + socket.id);
 
     socket.on("jump", () => {
       sendToAllViewers({ name: "jump", data: {} });

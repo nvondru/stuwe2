@@ -10,8 +10,8 @@ const io = new Server(httpServer);
 let viewers = [];
 let controllers = [];
 
-app.use(compression());
 app.use(express.static(__dirname + "/Public"));
+app.use(compression());
 
 io.on("connection", (socket) => {
   console.log("User connected: " + socket.id);

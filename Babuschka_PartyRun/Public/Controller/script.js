@@ -23,6 +23,7 @@ let setup = () => {
     serverState.jumpPending = false;
   });
 
+  // comment to delete
   registerTouchListeners();
 };
 

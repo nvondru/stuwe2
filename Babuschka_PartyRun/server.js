@@ -40,14 +40,26 @@ io.on("connection", (socket) => {
 
     socket.on("jump", () => {
       sendToAllViewers({ name: "jump", data: {} });
+
+      setTimeout(() => {
+        sendToAllControllers({ name: "jump processed", data: {} });
+      }, 200);
     });
 
-    socket.on("shoot start", () => {
-      sendToAllViewers({ name: "shoot start", data: {} });
+    socket.on("shoot charge", () => {
+      sendToAllViewers({ name: "shoot charge", data: {} });
+
+      setTimeout(() => {
+        sendToAllControllers({ name: "shoot charge processed", data: {} });
+      }, 50);
     });
 
-    socket.on("shoot end", () => {
-      sendToAllViewers({ name: "shoot end", data: {} });
+    socket.on("shoot release", () => {
+      sendToAllViewers({ name: "shoot release", data: {} });
+
+      setTimeout(() => {
+        sendToAllControllers({ name: "shoot release processed", data: {} });
+      }, 50);
     });
   });
 });
@@ -56,6 +68,15 @@ let sendToAllViewers = (event) => {
   viewers.forEach((viewer) => {
     console.log(`Sending ${event.name} event to viewer with id: ${viewer.id}`);
     io.to(viewer.id).emit(event.name, event.data);
+  });
+};
+
+let sendToAllControllers = (event) => {
+  controllers.forEach((controller) => {
+    console.log(
+      `Sending ${event.name} event to controller with id: ${controller.id}`
+    );
+    io.to(controller.id).emit(event.name, event.data);
   });
 };
 

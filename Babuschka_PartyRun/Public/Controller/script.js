@@ -11,8 +11,8 @@ let serverState = {
 };
 
 let setup = () => {
-  // socket = io("https://blooming-shore-50486.herokuapp.com/");
-  socket = io("https://5b7f-2a02-1210-88f4-c400-79e8-19b3-b576-d697.ngrok.io/");
+  socket = io("https://blooming-shore-50486.herokuapp.com/");
+  // socket = io("https://5b7f-2a02-1210-88f4-c400-79e8-19b3-b576-d697.ngrok.io/");
   socket.on("connection success", () => {
     console.log("controller connected successfully to the server!");
 

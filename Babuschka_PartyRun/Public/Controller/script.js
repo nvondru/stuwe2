@@ -12,7 +12,8 @@ let serverState = {
 
 let setup = () => {
   socket = io("https://blooming-shore-50486-eu.herokuapp.com/");
-  // socket = io("https://5b7f-2a02-1210-88f4-c400-79e8-19b3-b576-d697.ngrok.io/");
+  // socket = io("https://9337-178-197-232-179.eu.ngrok.io/");
+  // socket = io("http://172.20.10.2:3000");
   socket.on("connection success", () => {
     console.log("controller connected successfully to the server!");
 
@@ -104,7 +105,7 @@ let addShakeHandler = () => {
     x2 = 0,
     y2 = 0;
 
-  var sensitivity = 20;
+  var sensitivity = 50;
   window.addEventListener(
     "devicemotion",
     function (e) {

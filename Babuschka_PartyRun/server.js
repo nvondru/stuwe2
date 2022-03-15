@@ -2,6 +2,7 @@ const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const compression = require("compression");
+const { v1: uuidv1, v4: uuidv4 } = require("uuid");
 
 const app = express();
 const httpServer = createServer(app);

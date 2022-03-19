@@ -4,20 +4,24 @@ let btnShoot = document.getElementById("btn_shoot");
 let btnStart = document.getElementById("btn_start");
 let permissionGranted = false;
 
-let serverState = {
-  jumpPending: false,
-  shootChargePending: false,
-  shootReleasePending: false,
-};
+// let serverState = {
+//   jumpPending: false,
+//   shootChargePending: false,
+//   shootReleasePending: false,
+// };
 
 let setup = () => {
-  socket = io("https://blooming-shore-50486-eu.herokuapp.com/");
-  // socket = io("https://9337-178-197-232-179.eu.ngrok.io/");
-  // socket = io("http://172.20.10.2:3000");
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  let url = urlParams.get("url");
+  let roomId = urlParams.get("id");
+  console.log("Retrieved socket.io URL: " + url);
+
+  socket = io(url);
   socket.on("connection success", () => {
     console.log("controller connected successfully to the server!");
 
-    socket.emit("register controller");
+    socket.emit("join room", roomId);
   });
 
   socket.on("jump processed", () => {
@@ -141,22 +145,22 @@ let addShakeHandler = () => {
 };
 
 let triggerShootCharge = () => {
-  if (!serverState.shootChargePending) {
-    socket.emit("shoot charge");
-  }
+  // if (!serverState.shootChargePending) {
+  socket.emit("shoot charge");
+  // }
 };
 
 let triggerShootRelease = () => {
-  if (!serverState.shootReleasePending) {
-    socket.emit("shoot release");
-  }
+  // if (!serverState.shootReleasePending) {
+  socket.emit("shoot release");
+  // }
 };
 
 let triggerJump = () => {
-  if (!serverState.jumpPending) {
-    serverState.jumpPending = true;
-    socket.emit("jump");
-  }
+  // if (!serverState.jumpPending) {
+  // serverState.jumpPending = true;
+  socket.emit("jump");
+  // }
 };
 
 setup();

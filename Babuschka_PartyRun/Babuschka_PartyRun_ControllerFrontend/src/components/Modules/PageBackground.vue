@@ -1,0 +1,21 @@
+<template>
+  <div id="backgroundImage"></div>
+  <div>Hello</div>
+</template>
+
+<script setup></script>
+
+<style>
+#backgroundImage {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("background_start.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: cover;
+  z-index: -100;
+}
+</style>

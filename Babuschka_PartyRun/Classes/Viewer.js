@@ -10,7 +10,7 @@ class Viewer {
 
   registerSocketListeners() {
     this.socket.on("disconnect", () => {
-      this.room.delete();
+      this.room.unsubscribeViewer(this);
     });
   }
 }

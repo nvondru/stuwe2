@@ -1,31 +1,64 @@
 <template>
   <header id="header">
-    <div class="iconContainerLeft"><img src="quit.png" alt="" /></div>
-    <div class="iconContainerMid"><img src="quit.png" alt="" /></div>
-    <div class="iconContainerRight"><img src="quit.png" alt="" /></div>
+    <!-- LEFT SIDE -->
+    <div class="iconContainerLeft">
+      <img
+        v-if="
+          props.screenType == ScreenType.RoleSelection ||
+          props.screenType == ScreenType.TriggerSelection ||
+          props.screenType == ScreenType.Instruction ||
+          props.screenType == ScreenType.Impressum
+        "
+        @click="$emit('handle_btn_back')"
+        src="arrow_left.svg"
+        alt=""
+      />
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="iconContainerRight">
+      <img
+        v-if="props.screenType != ScreenType.Gameplay"
+        src="quit.svg"
+        alt=""
+        @click="$emit('handle_btn_leave')"
+      />
+
+      <img
+        @click="$emit('handle_btn_options')"
+        v-else
+        src="options.svg"
+        alt=""
+      />
+    </div>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import ScreenType from "../../classes/ScreenType.js";
+let props = defineProps({
+  screenType: Object,
+});
+</script>
 
 <style>
 #header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
   z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
 }
-#header > :nth-child(0) {
+
+.iconContainerLeft {
   text-align: left;
-  background-color: red;
 }
-#header:nth-child(2) {
-  text-align: center;
-}
+
 .iconContainerRight {
   text-align: right;
+  -webkit-font-smoothing: none;
+}
+img {
+  height: 60px;
 }
 </style>

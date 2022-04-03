@@ -1,0 +1,67 @@
+<template>
+  <PageBackground imageURL="background_default.png" />
+  <HeaderBar
+    :screenType="ScreenType.RoleSelection"
+    @handle_btn_back="$emit('navigate_to', ScreenType.EnterName)"
+    @handle_btn_leave="$emit('handle_btn_leave')"
+  />
+  <h1 id="playerName">{{ playerInfo.name }}</h1>
+  <h2>Choose your role:</h2>
+  <div id="selectionGrid">
+    <RoleSelectionCard
+      :role="Role.Jump"
+      :class="{ selected: this.props.roleState.jump.selected }"
+      @click="$emit('handle_select_role', Role.Jump)"
+    />
+    <RoleSelectionCard
+      :role="Role.ShotCharge"
+      :class="{ selected: this.props.roleState.shotCharge.selected }"
+      @click="$emit('handle_select_role', Role.ShotCharge)"
+    />
+    <RoleSelectionCard
+      :role="Role.ShotRelease"
+      :class="{ selected: this.props.roleState.shotRelease.selected }"
+      @click="$emit('handle_select_role', Role.ShotRelease)"
+    />
+    <RoleSelectionCard
+      :role="Role.Enemy"
+      :class="{ selected: this.props.roleState.enemy.selected }"
+      @click="$emit('handle_select_role', Role.Enemy)"
+    />
+  </div>
+</template>
+
+<script setup>
+// Classes
+import ScreenType from "../../classes/ScreenType.js";
+import Role from "../../classes/Role";
+// Components
+import PageBackground from "../Modules/PageBackground.vue";
+import HeaderBar from "../Modules/HeaderBar.vue";
+import RoleSelectionCard from "../Modules/RoleSelectionCard.vue";
+
+let props = defineProps({
+  playerInfo: Object,
+  roleState: Object,
+});
+</script>
+
+<style scoped>
+#playerName {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+#selectionGrid {
+  height: 600px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0px 4rem;
+}
+.selected {
+  opacity: 0.5;
+  pointer-events: none;
+}
+</style>

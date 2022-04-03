@@ -1,9 +1,12 @@
 <template>
-  <div id="backgroundImage"></div>
-  <div>Hello</div>
+  <img id="backgroundImage" :src="imageURL" alt="" />
 </template>
 
-<script setup></script>
+<script setup>
+let props = defineProps({
+  imageURL: String,
+});
+</script>
 
 <style>
 #backgroundImage {
@@ -12,10 +15,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url("background_start.png");
-  background-repeat: no-repeat;
-  background-position-x: center;
-  background-size: cover;
+  object-fit: cover;
   z-index: -100;
 }
 </style>

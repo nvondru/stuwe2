@@ -1,0 +1,17 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+#app {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* for single line flex container */
+  align-content: center; /* for multi-line flex container */
+  gap: 2rem;
+  /* justify-content: space-between; */
+}

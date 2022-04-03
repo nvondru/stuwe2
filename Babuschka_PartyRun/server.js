@@ -6,8 +6,14 @@ const compression = require("compression");
 const BabuschkaServer = require("./Classes/BabuschkaServer.js");
 
 const app = express();
+
 const httpServer = createServer(app);
-const io = new Server(httpServer);
+const io = require("socket.io")(httpServer, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 const babuschkaServer = new BabuschkaServer(io);
 
 app.use(express.static(__dirname + "/Public"));

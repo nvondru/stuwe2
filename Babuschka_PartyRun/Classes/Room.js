@@ -108,12 +108,14 @@ class Room {
       controller.playerInfo.readyState = false;
     });
 
-    this.emitTo(this.viewers, new SocketEvent("reset ready state", {}), this);
-    this.emitTo(
-      this.controllers,
-      new SocketEvent("reset ready state", {}),
-      this
-    );
+    setTimeout(() => {
+      this.emitTo(this.viewers, new SocketEvent("reset ready state", {}), this);
+      this.emitTo(
+        this.controllers,
+        new SocketEvent("reset ready state", {}),
+        this
+      );
+    }, 5000);
   }
 }
 

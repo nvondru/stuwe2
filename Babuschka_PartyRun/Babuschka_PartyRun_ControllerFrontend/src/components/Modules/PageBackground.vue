@@ -1,10 +1,24 @@
 <template>
-  <img id="backgroundImage" :src="imageURL" alt="" />
+  <img
+    v-if="props.currentScreen == ScreenType.EnterName"
+    id="backgroundImage"
+    src="../../assets/background_start.png"
+    alt=""
+  />
+  <img
+    v-else
+    id="backgroundImage"
+    src="../../assets/background_default.png"
+    alt=""
+  />
 </template>
 
 <script setup>
+import { ref } from "@vue/reactivity";
+import ScreenType from "../../classes/ScreenType";
+
 let props = defineProps({
-  imageURL: String,
+  currentScreen: Object,
 });
 </script>
 

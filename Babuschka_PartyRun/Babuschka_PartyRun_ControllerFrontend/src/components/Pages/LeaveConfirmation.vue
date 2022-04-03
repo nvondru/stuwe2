@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="../../assets/background_default.png" />
+  <PageBackground />
 
   <div id="leaveConfirmationContainer">
     <div id="innerContainer">

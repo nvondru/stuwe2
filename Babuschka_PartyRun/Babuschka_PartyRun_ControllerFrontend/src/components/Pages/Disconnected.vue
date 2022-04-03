@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="../../assets/background_default.png" />
+  <PageBackground />
 
   <div id="container">
     <div id="innerContainer">

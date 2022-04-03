@@ -1,6 +1,25 @@
 <template>
   <div class="selectionCard" :style="{ borderColor: color }">
-    <img :src="imgURL" alt="" />
+    <img
+      v-if="props.role == Role.Jump"
+      src="../../assets/babuschka_jump.png"
+      alt=""
+    />
+    <img
+      v-else-if="props.role == Role.ShotCharge"
+      src="../../assets/shot_charge.png"
+      alt=""
+    />
+    <img
+      v-else-if="props.role == Role.ShotRelease"
+      src="../../assets/shot_release.png"
+      alt=""
+    />
+    <img
+      v-else-if="props.role == Role.Enemy"
+      src="../../assets/polarBear.png"
+      alt=""
+    />
     <hr :style="{ borderColor: color }" />
     <div class="roleDescription">{{ description }}</div>
   </div>
@@ -11,33 +30,28 @@ import Role from "../../classes/Role.js";
 let props = defineProps({
   role: Object,
 });
-let imgURL = "";
 let description = "";
 let color = "";
 
 switch (props.role) {
   case Role.Jump:
-    imgURL = "../../assets/babuschka_jump.png";
     description = "Jump";
     color = "#00FFF0";
     break;
 
   case Role.ShotCharge:
-    imgURL = "../../assets/shot_charge.png";
     description = "Charge Shot";
     color = "#6BC203";
 
     break;
 
   case Role.ShotRelease:
-    imgURL = "../../assets/shot_release.png";
     description = "Release Shot";
     color = "#FF9900";
 
     break;
 
   case Role.Enemy:
-    imgURL = "../../assets/polarBear.png";
     description = "Enemy";
     color = "#DB00FF";
 

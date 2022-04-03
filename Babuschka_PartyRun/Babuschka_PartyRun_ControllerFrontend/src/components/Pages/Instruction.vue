@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="../../assets/background_default.png" />
+  <PageBackground />
   <ColorBorder :role="props.playerInfo.role" />
   <HeaderBar
     :screenType="ScreenType.Instruction"
@@ -14,8 +14,17 @@
     :triggerOption="props.playerInfo.triggerOption"
   />
   <img
+    v-if="!ready"
     id="btnReady"
-    :src="!ready ? '../../assets/ready.svg' : '../../assets/unready.svg'"
+    src="../../assets/ready.svg"
+    @click="toggleReady"
+    alt=""
+  />
+
+  <img
+    v-else
+    id="btnReady"
+    src="../../assets/unready.svg"
     @click="toggleReady"
     alt=""
   />
@@ -120,25 +129,22 @@ let handle_btn_back = () => {
 watch(
   () => props.starting,
   async (newValue, oldValue) => {
-    console.log(newValue);
+    console.log("Watched props.srating. New value is: " + newValue);
     if (newValue == true) {
       countDown();
     }
 
     if (newValue == false) {
-      this.ready.value = false;
-      this.counter.value = 3;
+      ready.value = false;
+      counter.value = 3;
     }
   }
 );
 
 let countDown = () => {
-  console.log(counter.value);
-
   if (counter.value > 0) {
     setTimeout(() => {
       counter.value--;
-      console.log(counter.value);
       countDown();
     }, 1000);
   }

@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="../../assets/background_start.png" />
+  <PageBackground :currentScreen="ScreenType.EnterName" />
   <HeaderBar
     :screenType="ScreenType.EnterName"
     @handle_btn_leave="$emit('handle_btn_leave')"

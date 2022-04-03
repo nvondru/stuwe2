@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="../../assets/background_default.png" />
+  <PageBackground />
   <HeaderBar
     :screenType="ScreenType.Impressum"
     @handle_btn_back="$emit('navigate_to', ScreenType.Options)"

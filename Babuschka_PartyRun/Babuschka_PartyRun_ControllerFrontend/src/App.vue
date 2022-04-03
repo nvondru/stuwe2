@@ -75,6 +75,13 @@ import { ref } from "@vue/reactivity";
 let currentScreen = ref(ScreenType.EnterName);
 let lastScreen = ref(currentScreen.value);
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let url = urlParams.get("url");
+let roomId = urlParams.get("id");
+console.log("Retrieved socket.io URL: " + url);
+console.log("Retrieved Room ID: " + roomId);
+
 let playerInfo = {
   name: "",
   role: new Role(),
@@ -145,12 +152,12 @@ let trigger = () => {
 };
 
 let socket = io(
-  "https://2a5a-2a02-1210-88f4-c400-91a5-22d0-6b51-b1b7.ngrok.io/"
+  url || "https://2a5a-2a02-1210-88f4-c400-91a5-22d0-6b51-b1b7.ngrok.io/"
 );
 
 socket.on("connection success", (response) => {
   console.log(response);
-  socket.emit("join room", "q_4dp3uBh2qJyRbpAAAd");
+  socket.emit("join room", roomId || "nSTjRDJTC-_QkiJeAAAB");
   requestRoleState();
 });
 

@@ -1,6 +1,17 @@
 <template>
   <div id="triggerSelectionCard">
-    <div :style="{ backgroundImage: 'url(' + imgURL + ')' }" class="icon"></div>
+    <div
+      v-if="props.triggerOption == TriggerOption.Shake"
+      class="icon shake"
+    ></div>
+    <div
+      v-else-if="props.triggerOption == TriggerOption.Touch"
+      class="icon touch"
+    ></div>
+    <div
+      v-else-if="props.triggerOption == TriggerOption.Voice"
+      class="icon voice"
+    ></div>
   </div>
 </template>
 
@@ -11,24 +22,6 @@ import TriggerOption from "../../classes/TriggerOption.js";
 let props = defineProps({
   triggerOption: Object,
 });
-let imgURL = "";
-switch (props.triggerOption) {
-  case TriggerOption.Shake:
-    imgURL = "../../assets/shake.svg";
-    break;
-
-  case TriggerOption.Touch:
-    imgURL = "../../assets/touch.svg";
-    break;
-
-  case TriggerOption.Voice:
-    imgURL = "../../assets/voice.svg";
-    break;
-
-  default:
-    console.log("Trigger option is misconfigured");
-    break;
-}
 </script>
 
 <style scoped>
@@ -46,5 +39,17 @@ switch (props.triggerOption) {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.shake {
+  background-image: url("../../assets/shake.svg");
+}
+
+.touch {
+  background-image: url("../../assets/touch.svg");
+}
+
+.voice {
+  background-image: url("../../assets/voice.svg");
 }
 </style>

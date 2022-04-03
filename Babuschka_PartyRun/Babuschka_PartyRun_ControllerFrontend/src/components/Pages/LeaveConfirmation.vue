@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="background_default.png" />
+  <PageBackground imageURL="../../assets/background_default.png" />
 
   <div id="leaveConfirmationContainer">
     <div id="innerContainer">
@@ -7,11 +7,11 @@
       <h3>The current game will terminate</h3>
       <div class="icons">
         <div @click="$emit('confirm_leave_game')">
-          <img src="tick.svg" alt="" />
+          <img src="../../assets/tick.svg" alt="" />
           <h3>Yes</h3>
         </div>
         <div @click="$emit('abort_leave_game')">
-          <img src="quit_x.svg" alt="" />
+          <img src="../../assets/quit_x.svg" alt="" />
           <h3>No</h3>
         </div>
       </div>

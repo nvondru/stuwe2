@@ -17,27 +17,27 @@ let color = "";
 
 switch (props.role) {
   case Role.Jump:
-    imgURL = "babuschka_jump.png";
+    imgURL = "../../assets/babuschka_jump.png";
     description = "Jump";
     color = "#00FFF0";
     break;
 
   case Role.ShotCharge:
-    imgURL = "shot_charge.png";
+    imgURL = "../../assets/shot_charge.png";
     description = "Charge Shot";
     color = "#6BC203";
 
     break;
 
   case Role.ShotRelease:
-    imgURL = "shot_release.png";
+    imgURL = "../../assets/shot_release.png";
     description = "Release Shot";
     color = "#FF9900";
 
     break;
 
   case Role.Enemy:
-    imgURL = "polarBear.png";
+    imgURL = "../../assets/polarBear.png";
     description = "Enemy";
     color = "#DB00FF";
 

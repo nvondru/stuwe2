@@ -10,7 +10,7 @@
           props.screenType == ScreenType.Impressum
         "
         @click="$emit('handle_btn_back')"
-        src="arrow_left.svg"
+        src="../../assets/arrow_left.svg"
         alt=""
       />
     </div>
@@ -19,7 +19,7 @@
     <div class="iconContainerRight">
       <img
         v-if="props.screenType != ScreenType.Gameplay"
-        src="quit.svg"
+        src="../../assets/quit.svg"
         alt=""
         @click="$emit('handle_btn_leave')"
       />
@@ -27,7 +27,7 @@
       <img
         @click="$emit('handle_btn_options')"
         v-else
-        src="options.svg"
+        src="../../assets/options.svg"
         alt=""
       />
     </div>

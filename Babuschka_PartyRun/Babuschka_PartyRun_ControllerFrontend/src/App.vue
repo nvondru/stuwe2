@@ -1,56 +1,58 @@
 <template>
   <EnterName
-    v-if="this.currentScreen.type == ScreenType.EnterName.type"
+    v-if="currentScreen.type == ScreenType.EnterName.type"
     @handle_set_name="setPlayerName"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
   />
   <RoleSelection
-    v-if="this.currentScreen.type == ScreenType.RoleSelection.type"
-    :playerInfo="this.playerInfo"
-    :roleState="this.roleState"
+    v-if="currentScreen.type == ScreenType.RoleSelection.type"
+    :playerInfo="playerInfo"
+    :roleState="roleState"
     @navigate_to="setCurrentScreen"
     @handle_select_role="setPlayerRole"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
   />
   <TriggerSelection
-    v-if="this.currentScreen.type == ScreenType.TriggerSelection.type"
-    :playerInfo="this.playerInfo"
+    v-if="currentScreen.type == ScreenType.TriggerSelection.type"
+    :playerInfo="playerInfo"
     @navigate_to="setCurrentScreen"
     @release_role="releaseRole"
     @handle_trigger_selection="setPlayerTriggerOption"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
   />
   <Instruction
-    v-if="this.currentScreen.type == ScreenType.Instruction.type"
-    :playerInfo="this.playerInfo"
+    v-if="currentScreen.type == ScreenType.Instruction.type"
+    :playerInfo="playerInfo"
+    :starting="starting"
     @navigate_to="setCurrentScreen"
+    @release_trigger="releaseTrigger"
     @handle_ready_change="setPlayerReadyState"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
+    @handle_trigger="trigger"
   />
   <Gameplay
-    v-if="this.currentScreen.type == ScreenType.Gameplay.type"
-    :role="Role.Enemy"
-    :triggerOption="TriggerOption.Voice"
+    v-if="currentScreen.type == ScreenType.Gameplay.type"
+    :playerInfo="playerInfo"
     @show_options="showOptions"
+    @handle_trigger="trigger"
   />
   <Options
-    v-if="this.currentScreen.type == ScreenType.Options.type"
+    v-if="currentScreen.type == ScreenType.Options.type"
     @navigate_to="setCurrentScreen"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
   />
   <Impressum
-    v-if="this.currentScreen.type == ScreenType.Impressum.type"
+    v-if="currentScreen.type == ScreenType.Impressum.type"
     @navigate_to="setCurrentScreen"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
   />
   <LeaveConfirmation
-    v-if="this.currentScreen.type == ScreenType.LeaveConfirmation.type"
+    v-if="currentScreen.type == ScreenType.LeaveConfirmation.type"
     @confirm_leave_game="leaveGame"
     @abort_leave_game="setCurrentScreen(lastScreen)"
   />
-  <Disconnected
-    v-if="this.currentScreen.type == ScreenType.Disconnected.type"
-  />
+  <Disconnected v-if="currentScreen.type == ScreenType.Disconnected.type" />
+  <!-- <h1 style="color: black">Hello Wolrd</h1> -->
 </template>
 
 <script setup>
@@ -81,6 +83,7 @@ let playerInfo = {
 };
 
 let roleState = ref([]);
+let starting = ref(false);
 
 let setPlayerName = (name) => {
   playerInfo.name = name;
@@ -96,17 +99,19 @@ let setPlayerRole = (role) => {
 
 let setPlayerTriggerOption = (triggerOption) => {
   playerInfo.triggerOption = triggerOption;
+  socket.emit("trigger option selected", playerInfo);
   setCurrentScreen(ScreenType.Instruction);
 };
 
 let setPlayerReadyState = (readyState) => {
   playerInfo.readyState = readyState;
-  console.log(playerInfo.readyState);
+  socket.emit("update ready state", playerInfo);
 };
 
 let setCurrentScreen = (screen) => {
   lastScreen.value = currentScreen.value;
   console.log("Last screen was: " + lastScreen.value.type);
+  console.log("Setting screen: " + screen.type);
   currentScreen.value = screen;
 };
 
@@ -126,11 +131,26 @@ let requestRoleState = () => {
 let releaseRole = () => {
   socket.emit("release role");
 };
-let socket = io("localhost:5501");
+
+let releaseTrigger = () => {
+  socket.emit("release trigger");
+  if (playerInfo.readyState == true) {
+    setPlayerReadyState(false);
+  }
+};
+
+let trigger = () => {
+  console.log("Emitting trigger: " + playerInfo.role.role);
+  socket.emit(playerInfo.role.role);
+};
+
+let socket = io(
+  "https://2a5a-2a02-1210-88f4-c400-91a5-22d0-6b51-b1b7.ngrok.io/"
+);
 
 socket.on("connection success", (response) => {
   console.log(response);
-  socket.emit("join room", "jFgmtV2vKr4aNlXxAAAB");
+  socket.emit("join room", "q_4dp3uBh2qJyRbpAAAd");
   requestRoleState();
 });
 
@@ -145,6 +165,16 @@ socket.on("update role state", (states) => {
       playerName: state.playerName,
     };
   });
+});
+
+socket.on("start game", () => {
+  starting.value = true;
+  setTimeout(() => {
+    setCurrentScreen(ScreenType.Gameplay);
+  }, 3000);
+});
+socket.on("reset ready state", () => {
+  starting.value = false;
 });
 </script>
 

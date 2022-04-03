@@ -1,27 +1,33 @@
 <template>
-  <PageBackground imageURL="background_default.png" />
+  <PageBackground imageURL="../../assets/background_default.png" />
   <ColorBorder :role="props.playerInfo.role" />
   <HeaderBar
     :screenType="ScreenType.Instruction"
-    @handle_btn_back="$emit('navigate_to', ScreenType.TriggerSelection)"
+    @handle_btn_back="handle_btn_back"
     @handle_btn_leave="$emit('handle_btn_leave')"
   />
   <h1>Instruction</h1>
   <h3>{{ description_1 }}</h3>
   <h3>{{ description_2 }}</h3>
-  <ControlElement :triggerOption="props.playerInfo.triggerOption" />
+  <ControlElement
+    @click="handle_control_element"
+    :triggerOption="props.playerInfo.triggerOption"
+  />
   <img
     id="btnReady"
-    :src="!ready ? 'ready.svg' : 'unready.svg'"
+    :src="!ready ? '../../assets/ready.svg' : '../../assets/unready.svg'"
     @click="toggleReady"
     alt=""
   />
   <h3>{{ readyText }}</h3>
   <h3 class="heartbeat" v-if="ready">Waiting for other players...</h3>
+  <div v-if="starting" id="startingOverlay">
+    <h1 id="countdown">{{ counter }}</h1>
+  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 // Classes
 import ScreenType from "../../classes/ScreenType.js";
 import Role from "../../classes/Role.js";
@@ -34,11 +40,19 @@ import ControlElement from "../Modules/ControlElement.vue";
 
 let props = defineProps({
   playerInfo: Object,
+  starting: Object,
 });
 
-const emit = defineEmits(["handle_ready_change"]);
+const emit = defineEmits([
+  "handle_ready_change",
+  "navigate_to",
+  "release_trigger",
+  "handle_trigger",
+]);
 
 let ready = ref(false);
+let counter = ref(3);
+
 let description_1 = "";
 let description_2 = "";
 let readyText = ref("Tap to ready up");
@@ -97,6 +111,43 @@ let toggleReady = () => {
 
   emit("handle_ready_change", ready.value);
 };
+
+let handle_btn_back = () => {
+  emit("navigate_to", ScreenType.TriggerSelection);
+  emit("release_trigger");
+};
+
+watch(
+  () => props.starting,
+  async (newValue, oldValue) => {
+    console.log(newValue);
+    if (newValue == true) {
+      countDown();
+    }
+
+    if (newValue == false) {
+      this.ready.value = false;
+      this.counter.value = 3;
+    }
+  }
+);
+
+let countDown = () => {
+  console.log(counter.value);
+
+  if (counter.value > 0) {
+    setTimeout(() => {
+      counter.value--;
+      console.log(counter.value);
+      countDown();
+    }, 1000);
+  }
+};
+let handle_control_element = () => {
+  if (props.playerInfo.triggerOption == TriggerOption.Touch) {
+    emit("handle_trigger");
+  }
+};
 </script>
 
 <style scoped>
@@ -119,6 +170,24 @@ h3 {
   animation: heartbeat 1s infinite alternate;
 }
 
+#startingOverlay {
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+#countdown {
+  font-size: 10rem;
+  color: black;
+  animation: heartbeat 0.5s infinite alternate;
+}
 @keyframes heartbeat {
   to {
     transform: scale(1.1);

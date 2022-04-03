@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="background_start.png" />
+  <PageBackground imageURL="../../assets/background_start.png" />
   <HeaderBar
     :screenType="ScreenType.EnterName"
     @handle_btn_leave="$emit('handle_btn_leave')"
@@ -9,8 +9,8 @@
     <input v-model="name" id="inputName" type="text" placeholder="Enter Name" />
     <img
       id="btnStart"
-      src="play.svg"
-      @click="$emit('handle_set_name', this.name)"
+      src="../../assets/play.svg"
+      @click="$emit('handle_set_name', name)"
     />
   </div>
 </template>

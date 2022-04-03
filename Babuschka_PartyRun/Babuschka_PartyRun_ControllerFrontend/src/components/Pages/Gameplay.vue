@@ -1,14 +1,17 @@
 <template>
-  <PageBackground imageURL="background_default.png" />
-  <ColorBorder :role="props.role" />
+  <PageBackground imageURL="../../assets/background_default.png" />
+  <ColorBorder :role="props.playerInfo.role" />
   <HeaderBar
     :screenType="ScreenType.Gameplay"
     @handle_btn_options="$emit('show_options')"
   />
-  <h1>Nicolas</h1>
+  <h1>{{ props.playerInfo.name }}</h1>
   <h3>{{ description_1 }}</h3>
   <h3>{{ description_2 }}</h3>
-  <ControlElement :triggerOption="props.triggerOption" />
+  <ControlElement
+    @click="handle_control_element"
+    :triggerOption="props.playerInfo.triggerOption"
+  />
 </template>
 
 <script setup>
@@ -24,12 +27,14 @@ import ColorBorder from "../Modules/ColorBorder.vue";
 import ControlElement from "../Modules/ControlElement.vue";
 
 let props = defineProps({
-  role: Object,
-  triggerOption: Object,
+  playerInfo: Object,
 });
+
+let emit = defineEmits(["handle_trigger"]);
+
 let description_1 = "";
 let description_2 = "";
-switch (props.triggerOption) {
+switch (props.playerInfo.triggerOption) {
   case TriggerOption.Shake:
     description_1 = "Shake your phone to jump.";
     description_2 = "Shake again to doublejump.";
@@ -52,7 +57,7 @@ switch (props.triggerOption) {
 
 let color = "";
 
-switch (props.role) {
+switch (props.playerInfo.role) {
   case Role.Jump:
     color = "#00FFF0";
     break;
@@ -73,6 +78,11 @@ switch (props.role) {
     console.log("Role is misconfigured...");
     break;
 }
+let handle_control_element = () => {
+  if (props.playerInfo.triggerOption == TriggerOption.Touch) {
+    emit("handle_trigger");
+  }
+};
 </script>
 
 <style scoped>

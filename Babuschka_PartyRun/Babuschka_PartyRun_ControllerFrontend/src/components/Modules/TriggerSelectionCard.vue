@@ -14,15 +14,15 @@ let props = defineProps({
 let imgURL = "";
 switch (props.triggerOption) {
   case TriggerOption.Shake:
-    imgURL = "shake.svg";
+    imgURL = "../../assets/shake.svg";
     break;
 
   case TriggerOption.Touch:
-    imgURL = "touch.svg";
+    imgURL = "../../assets/touch.svg";
     break;
 
   case TriggerOption.Voice:
-    imgURL = "voice.svg";
+    imgURL = "../../assets/voice.svg";
     break;
 
   default:

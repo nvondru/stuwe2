@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="background_default.png" />
+  <PageBackground imageURL="../../assets/background_default.png" />
   <ColorBorder :role="playerInfo.role" />
   <HeaderBar
     :screenType="ScreenType.TriggerSelection"

@@ -1,19 +1,19 @@
 <template>
-  <PageBackground imageURL="background_default.png" />
+  <PageBackground imageURL="../../assets/background_default.png" />
   <HeaderBar
     :screenType="ScreenType.Options"
     @handle_btn_leave="$emit('handle_btn_leave')"
   />
   <div id="optionsContainer">
     <img
-      src="impressum.svg"
+      src="../../assets/impressum.svg"
       alt=""
       @click="$emit('navigate_to', ScreenType.Impressum)"
     />
-    <img src="sound_unmuted.svg" alt="" />
-    <img src="refresh.svg" alt="" />
+    <img src="../../assets/sound_unmuted.svg" alt="" />
+    <img src="../../assets/refresh.svg" alt="" />
     <img
-      src="play.svg"
+      src="../../assets/play.svg"
       alt=""
       @click="$emit('navigate_to', ScreenType.Gameplay)"
     />

@@ -1,0 +1,340 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+#app {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* for single line flex container */
+  align-content: center; /* for multi-line flex container */
+  gap: 2rem;
+  /* justify-content: space-between; */
+}
+
+#backgroundImage {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: -100;
+}
+
+#header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
+}
+.iconContainerLeft {
+  text-align: left;
+}
+.iconContainerRight {
+  text-align: right;
+  -webkit-font-smoothing: none;
+}
+img {
+  height: 60px;
+}
+
+#title[data-v-3da8b74a] {
+  font-size: 2.5rem;
+  text-align: center;
+}
+#nameBar[data-v-3da8b74a] {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  right: 40px;
+}
+#inputName[data-v-3da8b74a] {
+  color: black;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-appearance: none;
+  border: 6px solid white;
+  border-radius: 1rem;
+}
+#btnStart[data-v-3da8b74a] {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  width: 60px;
+  height: 60px;
+  transform: translate(50%, -50%);
+}
+[data-v-3da8b74a]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+[data-v-3da8b74a]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: black;
+}
+[data-v-3da8b74a]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: black;
+}
+
+.selectionCard[data-v-05188e13] {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 6px solid limegreen;
+  border-radius: 10px;
+  text-align: center;
+  box-sizing: border-box;
+}
+img[data-v-05188e13] {
+  height: 70%;
+  -webkit-font-smoothing: none;
+}
+hr[data-v-05188e13] {
+  border: 2px solid limegreen;
+  margin: 0;
+}
+.roleDescription[data-v-05188e13] {
+  height: calc(30% - 4px);
+  display: flex;
+
+  justify-content: center;
+  align-items: center; /* for single line flex container */
+  align-content: center; /* for multi-line flex container */
+}
+
+#playerName[data-v-290e3ec1] {
+  text-align: center;
+}
+h2[data-v-290e3ec1] {
+  text-align: center;
+}
+#selectionGrid[data-v-290e3ec1] {
+  height: 600px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0px 4rem;
+}
+.selected[data-v-290e3ec1] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#colorBorder[data-v-3e087d30] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 10px solid;
+  box-sizing: border-box;
+  z-index: -5;
+}
+
+#triggerSelectionCard[data-v-4fc5d784] {
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 6px solid white;
+  border-radius: 10px;
+  text-align: center;
+}
+.icon[data-v-4fc5d784] {
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1[data-v-4801c92c],
+h2[data-v-4801c92c] {
+  text-align: center;
+}
+#triggerSelectionGrid[data-v-4801c92c] {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 600px;
+  gap: 30px;
+  justify-content: center;
+}
+
+#controlElement[data-v-b446a444] {
+  padding: 40px;
+  box-sizing: border-box;
+  width: 70vw;
+  height: 70vw;
+  text-align: center;
+}
+.icon[data-v-b446a444] {
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.background[data-v-b446a444] {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 6px solid white;
+  border-radius: 10px;
+}
+
+h1[data-v-854ca94e] {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+h3[data-v-854ca94e] {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+#btnReady[data-v-854ca94e] {
+  height: 80px;
+}
+.heartbeat[data-v-854ca94e] {
+  animation: heartbeat-854ca94e 1s infinite alternate;
+}
+#startingOverlay[data-v-854ca94e] {
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+#countdown[data-v-854ca94e] {
+  font-size: 10rem;
+  color: black;
+  animation: heartbeat-854ca94e 0.5s infinite alternate;
+}
+@keyframes heartbeat-854ca94e {
+to {
+    transform: scale(1.1);
+}
+}
+
+h1[data-v-0518b6db] {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+h3[data-v-0518b6db] {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+#btnReady[data-v-0518b6db] {
+  height: 80px;
+}
+
+#optionsContainer[data-v-5672273a] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 90px 0 60px 0;
+}
+img[data-v-5672273a] {
+  height: auto;
+  width: 25%;
+}
+
+#impressumContainer[data-v-84621f64] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 90px 0 60px 0;
+}
+h2[data-v-84621f64] {
+  padding: 1rem 0;
+}
+
+#leaveConfirmationContainer[data-v-57a032ab] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 90px 0 60px 0;
+  text-align: center;
+}
+#innerContainer[data-v-57a032ab] {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.icons[data-v-57a032ab] {
+  display: flex;
+  justify-content: space-evenly;
+}
+h2[data-v-57a032ab] {
+  padding: 1rem 0;
+}
+
+#container[data-v-45fc3b00] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 90px 0 60px 0;
+  text-align: center;
+}
+#innerContainer[data-v-45fc3b00] {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+h2[data-v-45fc3b00] {
+  padding: 1rem 0;
+}
+
+* {
+  font-family: "VCR OSD Mono", "Arial";
+  color: white;
+}
+h1,
+h2 {
+  padding: 0;
+  margin: 0;
+}

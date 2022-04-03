@@ -85,6 +85,36 @@ class Room {
     }
     this.babuschkaServer.removeRoom(this);
   }
+  allPlayersReady() {
+    // if (this.controllers.length >= 4) {
+    let ready = true;
+    this.controllers.forEach((controller) => {
+      if (controller.playerInfo.readyState == false) {
+        ready = false;
+      }
+    });
+    return ready;
+    // }
+
+    // return false;
+  }
+  startGame() {
+    this.emitTo(this.viewers, new SocketEvent("start game", {}), this);
+    this.emitTo(this.controllers, new SocketEvent("start game", {}), this);
+    this.resetReadyState();
+  }
+  resetReadyState() {
+    this.controllers.forEach((controller) => {
+      controller.playerInfo.readyState = false;
+    });
+
+    this.emitTo(this.viewers, new SocketEvent("reset ready state", {}), this);
+    this.emitTo(
+      this.controllers,
+      new SocketEvent("reset ready state", {}),
+      this
+    );
+  }
 }
 
 module.exports = Room;

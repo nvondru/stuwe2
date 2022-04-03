@@ -1,3 +1,5 @@
+const SocketEvent = require("./SocketEvent");
+
 class Viewer {
   constructor(socket) {
     this.id = socket.id;
@@ -11,6 +13,14 @@ class Viewer {
   registerSocketListeners() {
     this.socket.on("disconnect", () => {
       this.room.unsubscribeViewer(this);
+    });
+
+    this.socket.on("request role state", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("init role state", { roles: this.room.roles }),
+        this
+      );
     });
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <PageBackground imageURL="background_default.png" />
+  <PageBackground imageURL="../../assets/background_default.png" />
   <HeaderBar
     :screenType="ScreenType.RoleSelection"
     @handle_btn_back="$emit('navigate_to', ScreenType.EnterName)"
@@ -10,22 +10,22 @@
   <div id="selectionGrid">
     <RoleSelectionCard
       :role="Role.Jump"
-      :class="{ selected: this.props.roleState.jump.selected }"
+      :class="{ selected: props.roleState.jump.selected }"
       @click="$emit('handle_select_role', Role.Jump)"
     />
     <RoleSelectionCard
       :role="Role.ShotCharge"
-      :class="{ selected: this.props.roleState.shotCharge.selected }"
+      :class="{ selected: props.roleState.shotCharge.selected }"
       @click="$emit('handle_select_role', Role.ShotCharge)"
     />
     <RoleSelectionCard
       :role="Role.ShotRelease"
-      :class="{ selected: this.props.roleState.shotRelease.selected }"
+      :class="{ selected: props.roleState.shotRelease.selected }"
       @click="$emit('handle_select_role', Role.ShotRelease)"
     />
     <RoleSelectionCard
       :role="Role.Enemy"
-      :class="{ selected: this.props.roleState.enemy.selected }"
+      :class="{ selected: props.roleState.enemy.selected }"
       @click="$emit('handle_select_role', Role.Enemy)"
     />
   </div>

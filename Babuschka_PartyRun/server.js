@@ -1,5 +1,6 @@
 const express = require("express");
 const { createServer } = require("http");
+const path = require("path");
 const { Server } = require("socket.io");
 const compression = require("compression");
 
@@ -15,8 +16,10 @@ const io = require("socket.io")(httpServer, {
   },
 });
 const babuschkaServer = new BabuschkaServer(io);
+const publicPath = path.join(__dirname, "Public");
+app.use(express.static(publicPath));
 
-app.use(express.static(__dirname + "/Public"));
+// app.use(express.static(__dirname + "/Public"));
 app.use(compression());
 
 httpServer.listen(process.env.PORT || 5501, () => {

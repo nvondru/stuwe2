@@ -83,9 +83,9 @@ __publicField(ScreenType, "Options", new _ScreenType("options"));
 __publicField(ScreenType, "Impressum", new _ScreenType("impressum"));
 __publicField(ScreenType, "LeaveConfirmation", new _ScreenType("leaveConfirmation"));
 __publicField(ScreenType, "Disconnected", new _ScreenType("disconnected"));
-var _imports_3$1 = "/assets/play.fd2ed0f0.svg";
-var _imports_0$5 = "/assets/background_start.003b6737.png";
-var _imports_1$5 = "/assets/background_default.f7e5fa83.png";
+var _imports_3$1 = "./assets/play.fd2ed0f0.svg";
+var _imports_0$5 = "./assets/background_start.003b6737.png";
+var _imports_1$5 = "./assets/background_default.f7e5fa83.png";
 var PageBackground_vue_vue_type_style_index_0_lang = "";
 const _hoisted_1$c = {
   key: 0,
@@ -110,9 +110,9 @@ const _sfc_main$f = {
     };
   }
 };
-var _imports_0$4 = "/assets/arrow_left.6dd9a121.svg";
-var _imports_1$4 = "/assets/quit.da3a859b.svg";
-var _imports_2$2 = "/assets/options.994df32a.svg";
+var _imports_0$4 = "./assets/arrow_left.6dd9a121.svg";
+var _imports_1$4 = "./assets/quit.da3a859b.svg";
+var _imports_2$2 = "./assets/options.994df32a.svg";
 var HeaderBar_vue_vue_type_style_index_0_lang = "";
 const _hoisted_1$b = { id: "header" };
 const _hoisted_2$9 = { class: "iconContainerLeft" };
@@ -195,8 +195,8 @@ const _sfc_main$d = {
 };
 var EnterName = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-f519a810"]]);
 var _imports_0$3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAoCAYAAAB0HkOaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGkWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMS0xMi0xOVQwMzo0ODoyMSswMTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMDJUMDU6MDY6MTcrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMDJUMDU6MDY6MTcrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjNmNzg5N2Y5LTg4MzMtNGNkMy05MzBmLTM1YzM0OTNjNmQ1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpkMzY3YTJkYi00MjQzLTQxNGQtOGJiNS1mNGVlMDQxMjJkN2EiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkMzY3YTJkYi00MjQzLTQxNGQtOGJiNS1mNGVlMDQxMjJkN2EiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmQzNjdhMmRiLTQyNDMtNDE0ZC04YmI1LWY0ZWUwNDEyMmQ3YSIgc3RFdnQ6d2hlbj0iMjAyMS0xMi0xOVQwMzo0ODoyMSswMTowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmNmYmJkMTNjLTBkNmMtNGQwYS1iZGM3LTMzZTJkNmUyM2FiMiIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0wMlQwNTowMjozNSswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjNmNzg5N2Y5LTg4MzMtNGNkMy05MzBmLTM1YzM0OTNjNmQ1NyIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0wMlQwNTowNjoxNyswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+y0r6oAAAAvlJREFUWIXtmDFoWkEYx//XhJY0GeNz6BIyKGigooVsHQoRYp9TaYeC0pZuhQ4F07EtdFLoUOJsMFvbTYlglqabUJ1iwEwuhebFUSkJltch3nG+d3fvnhqaIX8Q7p3v7vu9//fdu1Ni2zauim78bwBe1zAyzevcVDAMndvGiu9O6j5tEr7/6c636WD8QFD92vtBoej3RHQfr2nTpFyKqWIedx+aFMxz2V5azaSK+bE2dWomMDnLcnb5ekGlinllvWjDUJCcZYmgXLr3YWvseu3Jc50w/tPEray/MhBjeVk4tv11Z7YwAOZwkaK5ztKS1oDDLyUAwO3vv5WpnQRmCAA8CN/++S4Pq9eTjVUub+JnoywYhu0MDgDhft91ryhd0cfPlDC+nRGlhvapHNp7teX5Jtd2pmAY9igYCff7yFkWXq6uAtwSFznExwKErwh/MKP0EJEr5wtRBnTzT1sF5Qkj3ZscljKQUXCU2xUAQDaaZk9zvhBFKBjA2eja/PSaTbCfTNoUiBACkQlSGNUTZKPpMQiq3aMqMjABAKFggAfBRr2O/WQSiURCCAL4XE08DBzbwe5RlbUzEZPB3Dq86N+o11nMWCwmnHfSjVIKQnV8cgoAOFszeRClfMM40+MEyURM15jqm898W5qKWRyuXCChYADHJ6fMnVAwMAYkky9nvFyh4iHoNe0DgI8PXgjdmfhwpZMeHkBH2jC8K2/fP/IEoeKXuBfcRM5YvR47FqhAdAB8wzhrpbR9AKvXQyZiojMYagejhT0VDABX0NL2AQAgvKi/IL1c8pyJuhJenHcBUZDOYDgTKOUMFESUCh6OB9EEEx6ypGlSgTj7O4OhC4xe+6kpIcz6yqbNB2h0a6TRrUmPjDwA/dA+p0vldkU6j2vXXl/ZHPtt3OjWhLCyCRWwpNyuIBtNs7OQJ8womJ9Y7OnL7QoIITYAxONxACDNZhMAO3YwiYA8K01UjM46EE3carUQj8ftRCLBgLw00eHqsnSl/rm6hpHpHxFTVRB/qboaAAAAAElFTkSuQmCC";
-var _imports_1$3 = "/assets/shot_charge.2480caf6.png";
-var _imports_2$1 = "/assets/shot_release.1f939fba.png";
+var _imports_1$3 = "./assets/shot_charge.2480caf6.png";
+var _imports_2$1 = "./assets/shot_release.1f939fba.png";
 var _imports_3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEoAAABKCAYAAAAc0MJxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE82lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMS0xMi0xOVQwMzo0ODoyNSswMTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMjFUMDU6MDA6MDkrMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMjFUMDU6MDA6MDkrMDE6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY4MGM4YTBhLTUwZTItNDdjZS05YjI4LTU5ODZlMTVlN2U5YiIgeG1wTU06RG9jdW1lbnRJ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";
 var RoleSelectionCard_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1$9 = {
@@ -421,8 +421,8 @@ const _sfc_main$8 = {
   }
 };
 var TriggerSelection = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-14d46df8"]]);
-var _imports_0$2 = "/assets/ready.b6485a90.svg";
-var _imports_1$2 = "/assets/unready.8176aec6.svg";
+var _imports_0$2 = "./assets/ready.b6485a90.svg";
+var _imports_1$2 = "./assets/unready.8176aec6.svg";
 var ControlElement_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _hoisted_1$5 = {
   key: 0,
@@ -657,9 +657,9 @@ const _sfc_main$5 = {
   }
 };
 var Gameplay = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-26149bb2"]]);
-var _imports_0$1 = "/assets/impressum.790ad1b6.svg";
-var _imports_1$1 = "/assets/sound_unmuted.552d3431.svg";
-var _imports_2 = "/assets/refresh.c01e1f53.svg";
+var _imports_0$1 = "./assets/impressum.790ad1b6.svg";
+var _imports_1$1 = "./assets/sound_unmuted.552d3431.svg";
+var _imports_2 = "./assets/refresh.c01e1f53.svg";
 var Options_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _withScopeId$3 = (n) => (pushScopeId("data-v-5e8d8693"), n = n(), popScopeId(), n);
 const _hoisted_1$3 = { id: "optionsContainer" };
@@ -728,8 +728,8 @@ const _sfc_main$3 = {
   }
 };
 var Impressum = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-c6313060"]]);
-var _imports_0 = "/assets/tick.f821d064.svg";
-var _imports_1 = "/assets/quit_x.55f14bfb.svg";
+var _imports_0 = "./assets/tick.f821d064.svg";
+var _imports_1 = "./assets/quit_x.55f14bfb.svg";
 var LeaveConfirmation_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _withScopeId$1 = (n) => (pushScopeId("data-v-0afb2c12"), n = n(), popScopeId(), n);
 const _hoisted_1$1 = { id: "leaveConfirmationContainer" };

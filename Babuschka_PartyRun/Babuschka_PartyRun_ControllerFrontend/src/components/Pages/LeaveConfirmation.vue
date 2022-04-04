@@ -3,8 +3,12 @@
 
   <div id="leaveConfirmationContainer">
     <div id="innerContainer">
-      <h1>Do you really want to LEAVE?</h1>
-      <h3>The current game will terminate</h3>
+      <div v-if="props.lastScreen.type == ScreenType.Options.type">
+        <h1>Exit to role selection?</h1>
+        <h3>The game will terminate for all players</h3>
+      </div>
+      <h1 v-else>Do you really want to LEAVE?</h1>
+
       <div class="icons">
         <div @click="$emit('confirm_leave_game')">
           <img src="../../assets/tick.svg" alt="" />
@@ -26,6 +30,10 @@ import ScreenType from "../../classes/ScreenType";
 // Components
 import HeaderBar from "../Modules/HeaderBar.vue";
 import PageBackground from "../Modules/PageBackground.vue";
+
+let props = defineProps({
+  lastScreen: Object,
+});
 </script>
 
 <style scoped>

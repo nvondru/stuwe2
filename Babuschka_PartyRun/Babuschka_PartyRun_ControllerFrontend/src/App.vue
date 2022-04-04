@@ -54,6 +54,7 @@
   />
   <LeaveConfirmation
     v-if="currentScreen.type == ScreenType.LeaveConfirmation.type"
+    :lastScreen="lastScreen"
     @confirm_leave_game="leaveGame"
     @abort_leave_game="setCurrentScreen(lastScreen)"
   />
@@ -178,7 +179,7 @@ let socket = io(url || "192.168.1.109:5501");
 
 socket.on("connection success", (response) => {
   console.log(response);
-  socket.emit("join room", roomId || "lJ9teGHNO49FUExPAAAZ");
+  socket.emit("join room", roomId || "KEDYYR3SC7bF0zStAAAB");
   requestRoleState();
 });
 

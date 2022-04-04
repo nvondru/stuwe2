@@ -28,10 +28,11 @@ let props = defineProps({
 
 <style scoped>
 #controlElement {
-  padding: 40px;
+  padding: 20px;
   box-sizing: border-box;
-  width: 70vw;
-  height: 70vw;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
   text-align: center;
 }
 .icon {

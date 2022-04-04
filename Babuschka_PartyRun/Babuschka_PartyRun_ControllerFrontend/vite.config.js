@@ -17,5 +17,6 @@ export default defineConfig({
   define: {
     __VUE_PROD_DEVTOOLS__: true,
   },
+  // this sh*t literally drove me insane to figure out!!!
   base: "./",
 });

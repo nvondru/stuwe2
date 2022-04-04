@@ -59,6 +59,6 @@ let props = defineProps({
   -webkit-font-smoothing: none;
 }
 img {
-  height: 60px;
+  height: 40px;
 }
 </style>

@@ -2,16 +2,17 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 #app {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   box-sizing: border-box;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* for single line flex container */
-  align-content: center; /* for multi-line flex container */
-  gap: 2rem;
-  /* justify-content: space-between; */
+  /* align-items: center;  */
+  /* align-content: center;  */
+  justify-content: first baseline;
+  overflow: hidden;
 }

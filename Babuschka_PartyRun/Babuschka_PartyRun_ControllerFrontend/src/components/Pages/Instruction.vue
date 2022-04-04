@@ -6,32 +6,40 @@
     @handle_btn_back="handle_btn_back"
     @handle_btn_leave="$emit('handle_btn_leave')"
   />
-  <h1>Instruction</h1>
-  <h3>{{ description_1 }}</h3>
-  <h3>{{ description_2 }}</h3>
-  <ControlElement
-    @click="handle_control_element"
-    :triggerOption="props.playerInfo.triggerOption"
-  />
-  <img
-    v-if="!ready"
-    id="btnReady"
-    src="../../assets/ready.svg"
-    @click="toggleReady"
-    alt=""
-  />
+  <div class="flexContainer">
+    <div class="top">
+      <h1>Instruction</h1>
+      <h3>{{ description_1 }}</h3>
+      <h3>{{ description_2 }}</h3>
+    </div>
+    <ControlElement
+      @click="handle_control_element"
+      :triggerOption="props.playerInfo.triggerOption"
+    />
+    <div>
+      <img
+        v-if="!ready"
+        id="btnReady"
+        src="../../assets/ready.svg"
+        @click="toggleReady"
+        alt=""
+      />
 
-  <img
-    v-else
-    id="btnReady"
-    src="../../assets/unready.svg"
-    @click="toggleReady"
-    alt=""
-  />
-  <h3>{{ readyText }}</h3>
-  <h3 class="heartbeat" v-if="ready">Waiting for other players...</h3>
-  <div v-if="starting" id="startingOverlay">
-    <h1 id="countdown">{{ counter }}</h1>
+      <img
+        v-else
+        id="btnReady"
+        src="../../assets/unready.svg"
+        @click="toggleReady"
+        alt=""
+      />
+      <h3>{{ readyText }}</h3>
+      <h3 class="heartbeat" :class="{ hide: !ready }">
+        Waiting for other players...
+      </h3>
+      <div v-if="starting" id="startingOverlay">
+        <h1 id="countdown">{{ counter }}</h1>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -160,13 +168,9 @@ let handle_control_element = () => {
 h1 {
   font-size: 2.5rem;
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 h3 {
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 #btnReady {
   height: 80px;
@@ -174,6 +178,7 @@ h3 {
 
 .heartbeat {
   animation: heartbeat 1s infinite alternate;
+  transition: opacity 200ms ease-in-out;
 }
 
 #startingOverlay {
@@ -198,5 +203,17 @@ h3 {
   to {
     transform: scale(1.1);
   }
+}
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  gap: 30px;
+}
+.hide {
+  opacity: 0;
 }
 </style>

@@ -5,13 +5,17 @@
     :screenType="ScreenType.Gameplay"
     @handle_btn_options="$emit('show_options')"
   />
-  <h1>{{ props.playerInfo.name }}</h1>
-  <h3>{{ description_1 }}</h3>
-  <h3>{{ description_2 }}</h3>
-  <ControlElement
-    @click="handle_control_element"
-    :triggerOption="props.playerInfo.triggerOption"
-  />
+  <div class="flexContainer">
+    <div>
+      <h1>{{ props.playerInfo.name }}</h1>
+      <h3>{{ description_1 }}</h3>
+      <h3>{{ description_2 }}</h3>
+    </div>
+    <ControlElement
+      @click="handle_control_element"
+      :triggerOption="props.playerInfo.triggerOption"
+    />
+  </div>
 </template>
 
 <script setup>
@@ -89,15 +93,19 @@ let handle_control_element = () => {
 h1 {
   font-size: 2.5rem;
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 h3 {
   text-align: center;
-  margin: 0;
-  padding: 0;
 }
 #btnReady {
   height: 80px;
+}
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: first baseline;
+  gap: 30px;
 }
 </style>

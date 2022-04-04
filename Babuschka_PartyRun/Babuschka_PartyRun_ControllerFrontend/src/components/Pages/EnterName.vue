@@ -4,14 +4,21 @@
     :screenType="ScreenType.EnterName"
     @handle_btn_leave="$emit('handle_btn_leave')"
   />
-  <h1 id="title">Babushka Run</h1>
-  <div id="nameBar">
-    <input v-model="name" id="inputName" type="text" placeholder="Enter Name" />
-    <img
-      id="btnStart"
-      src="../../assets/play.svg"
-      @click="$emit('handle_set_name', name)"
-    />
+  <div class="flexContainer">
+    <h1 id="title">Babushka Run</h1>
+    <div id="nameBar">
+      <input
+        v-model="name"
+        id="inputName"
+        type="text"
+        placeholder="Enter Name"
+      />
+      <img
+        id="btnStart"
+        src="../../assets/play.svg"
+        @click="$emit('handle_set_name', name)"
+      />
+    </div>
   </div>
 </template>
 
@@ -30,10 +37,9 @@ let name = ref("");
   text-align: center;
 }
 #nameBar {
-  position: absolute;
-  bottom: 30px;
-  left: 40px;
-  right: 40px;
+  position: relative;
+  left: 0px;
+  right: 0px;
 }
 #inputName {
   color: black;
@@ -71,5 +77,11 @@ let name = ref("");
 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: black;
+}
+.flexContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 </style>

@@ -55,9 +55,10 @@ h2 {
 }
 
 #triggerSelectionGrid {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  height: 600px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
   gap: 30px;
   justify-content: center;
 }

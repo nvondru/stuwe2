@@ -6,14 +6,16 @@
     @handle_btn_leave="$emit('handle_btn_leave')"
   />
   <div id="impressumContainer">
-    <h1>Impressum</h1>
-    <h2>Created by:</h2>
+    <h1>Created by:</h1>
     <div>
-      <h2>Vanessa Buchmann</h2>
-      <h2>Nicole Bänninger</h2>
-      <h2>Michael Brechbühl</h2>
-      <h2>Nathalie Schwartz</h2>
-      <h2>Nicolas Vondru</h2>
+      <h3>Vanessa Buchmann</h3>
+      <h3>Nicole Bänninger</h3>
+      <h3>Michael Brechbühl</h3>
+      <h3>Nathalie Schwartz</h3>
+      <h3>Nicolas Vondru</h3>
+    </div>
+    <div class="imgWrapper">
+      <img src="../../assets/owl.png" alt="" />
     </div>
   </div>
 </template>
@@ -37,12 +39,16 @@ import PageBackground from "../Modules/PageBackground.vue";
   background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  text-align: center;
   padding: 90px 0 60px 0;
+  box-sizing: border-box;
 }
-
-h2 {
-  padding: 1rem 0;
+.imgWrapper {
+  height: 100%;
+}
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 </style>

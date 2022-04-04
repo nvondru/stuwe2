@@ -19,7 +19,6 @@ const babuschkaServer = new BabuschkaServer(io);
 const publicPath = path.join(__dirname, "Public");
 app.use(express.static(publicPath));
 
-// app.use(express.static(__dirname + "/Public"));
 app.use(compression());
 
 httpServer.listen(process.env.PORT || 5501, () => {

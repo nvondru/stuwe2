@@ -151,13 +151,11 @@ let trigger = () => {
   socket.emit(playerInfo.role.role);
 };
 
-let socket = io(
-  url || "https://2a5a-2a02-1210-88f4-c400-91a5-22d0-6b51-b1b7.ngrok.io/"
-);
+let socket = io(url || "http://192.168.1.109:5501");
 
 socket.on("connection success", (response) => {
   console.log(response);
-  socket.emit("join room", roomId || "nSTjRDJTC-_QkiJeAAAB");
+  socket.emit("join room", roomId || "91OZYFKbhdFVxVwAAAAD");
   requestRoleState();
 });
 
@@ -190,9 +188,14 @@ socket.on("reset ready state", () => {
   font-family: "VCR OSD Mono", "Arial";
   color: white;
 }
-h1,
+h1 {
+  margin: 0.3em;
+}
 h2 {
-  padding: 0;
-  margin: 0;
+  margin: 0.8em;
+}
+img {
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
 }
 </style>

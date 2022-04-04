@@ -84,13 +84,13 @@ __publicField(ScreenType, "Impressum", new _ScreenType("impressum"));
 __publicField(ScreenType, "LeaveConfirmation", new _ScreenType("leaveConfirmation"));
 __publicField(ScreenType, "Disconnected", new _ScreenType("disconnected"));
 var _imports_3$1 = "./assets/play.fd2ed0f0.svg";
-var _imports_0$5 = "./assets/background_start.003b6737.png";
+var _imports_0$6 = "./assets/background_start.003b6737.png";
 var _imports_1$5 = "./assets/background_default.f7e5fa83.png";
 var PageBackground_vue_vue_type_style_index_0_lang = "";
-const _hoisted_1$c = {
+const _hoisted_1$d = {
   key: 0,
   id: "backgroundImage",
-  src: _imports_0$5,
+  src: _imports_0$6,
   alt: ""
 };
 const _hoisted_2$a = {
@@ -106,17 +106,17 @@ const _sfc_main$f = {
   setup(__props) {
     const props = __props;
     return (_ctx, _cache) => {
-      return unref(props).currentScreen == unref(ScreenType).EnterName ? (openBlock(), createElementBlock("img", _hoisted_1$c)) : (openBlock(), createElementBlock("img", _hoisted_2$a));
+      return unref(props).currentScreen == unref(ScreenType).EnterName ? (openBlock(), createElementBlock("img", _hoisted_1$d)) : (openBlock(), createElementBlock("img", _hoisted_2$a));
     };
   }
 };
-var _imports_0$4 = "./assets/arrow_left.6dd9a121.svg";
+var _imports_0$5 = "./assets/arrow_left.6dd9a121.svg";
 var _imports_1$4 = "./assets/quit.da3a859b.svg";
 var _imports_2$2 = "./assets/options.994df32a.svg";
 var HeaderBar_vue_vue_type_style_index_0_lang = "";
-const _hoisted_1$b = { id: "header" };
+const _hoisted_1$c = { id: "header" };
 const _hoisted_2$9 = { class: "iconContainerLeft" };
-const _hoisted_3$7 = { class: "iconContainerRight" };
+const _hoisted_3$8 = { class: "iconContainerRight" };
 const _sfc_main$e = {
   props: {
     screenType: Object
@@ -124,16 +124,16 @@ const _sfc_main$e = {
   setup(__props) {
     const props = __props;
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("header", _hoisted_1$b, [
+      return openBlock(), createElementBlock("header", _hoisted_1$c, [
         createBaseVNode("div", _hoisted_2$9, [
           unref(props).screenType == unref(ScreenType).RoleSelection || unref(props).screenType == unref(ScreenType).TriggerSelection || unref(props).screenType == unref(ScreenType).Instruction || unref(props).screenType == unref(ScreenType).Impressum ? (openBlock(), createElementBlock("img", {
             key: 0,
             onClick: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("handle_btn_back")),
-            src: _imports_0$4,
+            src: _imports_0$5,
             alt: ""
           })) : createCommentVNode("", true)
         ]),
-        createBaseVNode("div", _hoisted_3$7, [
+        createBaseVNode("div", _hoisted_3$8, [
           unref(props).screenType != unref(ScreenType).Gameplay ? (openBlock(), createElementBlock("img", {
             key: 0,
             src: _imports_1$4,
@@ -158,9 +158,10 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _withScopeId$7 = (n) => (pushScopeId("data-v-f519a810"), n = n(), popScopeId(), n);
-const _hoisted_1$a = /* @__PURE__ */ _withScopeId$7(() => /* @__PURE__ */ createBaseVNode("h1", { id: "title" }, "Babushka Run", -1));
-const _hoisted_2$8 = { id: "nameBar" };
+const _withScopeId$7 = (n) => (pushScopeId("data-v-44bf5bac"), n = n(), popScopeId(), n);
+const _hoisted_1$b = { class: "flexContainer" };
+const _hoisted_2$8 = /* @__PURE__ */ _withScopeId$7(() => /* @__PURE__ */ createBaseVNode("h1", { id: "title" }, "Babushka Run", -1));
+const _hoisted_3$7 = { id: "nameBar" };
 const _sfc_main$d = {
   setup(__props) {
     let name = ref("");
@@ -173,53 +174,56 @@ const _sfc_main$d = {
           screenType: unref(ScreenType).EnterName,
           onHandle_btn_leave: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("handle_btn_leave"))
         }, null, 8, ["screenType"]),
-        _hoisted_1$a,
-        createBaseVNode("div", _hoisted_2$8, [
-          withDirectives(createBaseVNode("input", {
-            "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => isRef(name) ? name.value = $event : name = $event),
-            id: "inputName",
-            type: "text",
-            placeholder: "Enter Name"
-          }, null, 512), [
-            [vModelText, unref(name)]
-          ]),
-          createBaseVNode("img", {
-            id: "btnStart",
-            src: _imports_3$1,
-            onClick: _cache[2] || (_cache[2] = ($event) => _ctx.$emit("handle_set_name", unref(name)))
-          })
+        createBaseVNode("div", _hoisted_1$b, [
+          _hoisted_2$8,
+          createBaseVNode("div", _hoisted_3$7, [
+            withDirectives(createBaseVNode("input", {
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => isRef(name) ? name.value = $event : name = $event),
+              id: "inputName",
+              type: "text",
+              placeholder: "Enter Name"
+            }, null, 512), [
+              [vModelText, unref(name)]
+            ]),
+            createBaseVNode("img", {
+              id: "btnStart",
+              src: _imports_3$1,
+              onClick: _cache[2] || (_cache[2] = ($event) => _ctx.$emit("handle_set_name", unref(name)))
+            })
+          ])
         ])
       ], 64);
     };
   }
 };
-var EnterName = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-f519a810"]]);
-var _imports_0$3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAoCAYAAAB0HkOaAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGkWlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMS0xMi0xOVQwMzo0ODoyMSswMTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMDJUMDU6MDY6MTcrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMDJUMDU6MDY6MTcrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjNmNzg5N2Y5LTg4MzMtNGNkMy05MzBmLTM1YzM0OTNjNmQ1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpkMzY3YTJkYi00MjQzLTQxNGQtOGJiNS1mNGVlMDQxMjJkN2EiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpkMzY3YTJkYi00MjQzLTQxNGQtOGJiNS1mNGVlMDQxMjJkN2EiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmQzNjdhMmRiLTQyNDMtNDE0ZC04YmI1LWY0ZWUwNDEyMmQ3YSIgc3RFdnQ6d2hlbj0iMjAyMS0xMi0xOVQwMzo0ODoyMSswMTowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmNmYmJkMTNjLTBkNmMtNGQwYS1iZGM3LTMzZTJkNmUyM2FiMiIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0wMlQwNTowMjozNSswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjNmNzg5N2Y5LTg4MzMtNGNkMy05MzBmLTM1YzM0OTNjNmQ1NyIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0wMlQwNTowNjoxNyswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+y0r6oAAAAvlJREFUWIXtmDFoWkEYx//XhJY0GeNz6BIyKGigooVsHQoRYp9TaYeC0pZuhQ4F07EtdFLoUOJsMFvbTYlglqabUJ1iwEwuhebFUSkJltch3nG+d3fvnhqaIX8Q7p3v7vu9//fdu1Ni2zauim78bwBe1zAyzevcVDAMndvGiu9O6j5tEr7/6c636WD8QFD92vtBoej3RHQfr2nTpFyKqWIedx+aFMxz2V5azaSK+bE2dWomMDnLcnb5ekGlinllvWjDUJCcZYmgXLr3YWvseu3Jc50w/tPEray/MhBjeVk4tv11Z7YwAOZwkaK5ztKS1oDDLyUAwO3vv5WpnQRmCAA8CN/++S4Pq9eTjVUub+JnoywYhu0MDgDhft91ryhd0cfPlDC+nRGlhvapHNp7teX5Jtd2pmAY9igYCff7yFkWXq6uAtwSFznExwKErwh/MKP0EJEr5wtRBnTzT1sF5Qkj3ZscljKQUXCU2xUAQDaaZk9zvhBFKBjA2eja/PSaTbCfTNoUiBACkQlSGNUTZKPpMQiq3aMqMjABAKFggAfBRr2O/WQSiURCCAL4XE08DBzbwe5RlbUzEZPB3Dq86N+o11nMWCwmnHfSjVIKQnV8cgoAOFszeRClfMM40+MEyURM15jqm898W5qKWRyuXCChYADHJ6fMnVAwMAYkky9nvFyh4iHoNe0DgI8PXgjdmfhwpZMeHkBH2jC8K2/fP/IEoeKXuBfcRM5YvR47FqhAdAB8wzhrpbR9AKvXQyZiojMYagejhT0VDABX0NL2AQAgvKi/IL1c8pyJuhJenHcBUZDOYDgTKOUMFESUCh6OB9EEEx6ypGlSgTj7O4OhC4xe+6kpIcz6yqbNB2h0a6TRrUmPjDwA/dA+p0vldkU6j2vXXl/ZHPtt3OjWhLCyCRWwpNyuIBtNs7OQJ8womJ9Y7OnL7QoIITYAxONxACDNZhMAO3YwiYA8K01UjM46EE3carUQj8ftRCLBgLw00eHqsnSl/rm6hpHpHxFTVRB/qboaAAAAAElFTkSuQmCC";
-var _imports_1$3 = "./assets/shot_charge.2480caf6.png";
-var _imports_2$1 = "./assets/shot_release.1f939fba.png";
-var _imports_3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEoAAABKCAYAAAAc0MJxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE82lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMS0xMi0xOVQwMzo0ODoyNSswMTowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDMtMjFUMDU6MDA6MDkrMDE6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDMtMjFUMDU6MDA6MDkrMDE6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY4MGM4YTBhLTUwZTItNDdjZS05YjI4LTU5ODZlMTVlN2U5YiIgeG1wTU06RG9jdW1lbnRJ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";
+var EnterName = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["__scopeId", "data-v-44bf5bac"]]);
+var _imports_0$4 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAtCAYAAADsvzj/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAE82lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wNC0wM1QyMjoxNzozMSswMjowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMDRUMTE6NDY6NTkrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMDRUMTE6NDY6NTkrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOmM4NGM3NmQwLWUwMjAtNDgzZC04YWZjLWUzOGI3YzllZmJjOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpjODRjNzZkMC1lMDIwLTQ4M2QtOGFmYy1lMzhiN2M5ZWZiYzgiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjODRjNzZkMC1lMDIwLTQ4M2QtOGFmYy1lMzhiN2M5ZWZiYzgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmM4NGM3NmQwLWUwMjAtNDgzZC04YWZjLWUzOGI3YzllZmJjOCIgc3RFdnQ6d2hlbj0iMjAyMi0wNC0wM1QyMjoxNzozMSswMjowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIzLjIgKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+YeWEzAAAAzhJREFUaIHtmTFIG1EYx/+vSovV0VwGl+CQgCdUEsHNoWDA9DKVdigktKVboUNBO7ZCpwgdipmVuLXdEhTiUrsJ1ckIcXIp1DNjpCgp18F7j3eXl/Pu3bsaJH8IvHv33uX7ve97330vIZZl4Tbozk0boEoDkH7TAKTfdGtAhlU8ZFXT/Axz5PmJ3DxtEr7/2cY3KRuUgFwj4Yvq19YPAMBEbp7eJ6JxfhV1aHm+bXPlEh48MihUqDfzje2RXLnkaFMPyUoZyJJpursCrXCuXJLeH4AiEAqxZJoioC7Nriw7rqefvghtg/LQ4jLYX9H92ZVlaOPjwrmNrxvS3xvFHhnCVVgNNcfGfE04/LIOALj//bf0ho8CpAMAPATf/vm+BLPV6jVXOgUTleeRVU2zAKfhAJBqt7vGikJMf/JcGkS5R0ThRPu8PLP1etlvhSCUMo+sapplG0pS7TaWTBOvJicBLg2LPMPbAgjTuC8pAbFDioi8cTmiAzbM3T8NAD2BQoFI11quMGAQtuGoNKoAgKKeZyt1OaIjGY/hwr42Pr1hD9jJZi3YMIQQBF1gaRCvlSvqeQcA1eZRDQUYAIBkPMb6d7JZLNTr2MlmkclkAkMAirMWVVHPA64SZfOoxtqFKYOB3Du86l+o15lNMzMzgb8zqqKxJwTV8ekZAOBi2uAhpKUcxB1SbojClNE1p/b2M9+WCpH/cbBiohDJeAzHp2fMK8l4zAEjI6Ueuc4bVDwAvaZ9APDx4cvAXonsYOUnpHjjw0oZCO+Ndx8eO+6JIKj4NBwGLBKPmK0WK829IAB1XlEC4t4b62u7MFstFKYMNM87vp9Dk4CMlHnEbfD62i4AIDXqPzGG8U7o9Eu9kRod7oKhEM3zTuRAoUAohCh8eDAewidU4AOWdGh5Qbj7m+edLih6HWQPeUkKZC6xaPHG7Z1sk72T7Z6ryBtPP7TP7Z1Koyp13A1c/c4lFh2/1e6dbHuN8SUbhlQaVRT1PDvLBJFUGT+XWAw0nq56pVEFIcQCgHQ6DQBkf38fACv9mYLChM5aoo3rjnuRUQcHB0in01Ymk2EwYRTJweomdGv+sRqA9JsGIP2mfx21VRocc4y8AAAAAElFTkSuQmCC";
+var _imports_1$3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAtCAYAAADydghMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE82lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wNC0wM1QyMjoxNzozMSswMjowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMDRUMTE6NDc6MTQrMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMDRUMTE6NDc6MTQrMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjYwMTQ0YjdlLTcyNzgtNDcxMy04ZWE0LWIzMWMyMmNlMWRkZSIgeG1wTU06RG9jdW1lbnRJ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";
+var _imports_2$1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAtCAYAAADydghMAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE82lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYjBmOGJlOTAsIDIwMjEvMTIvMTUtMjE6MjU6MTUgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4yIChNYWNpbnRvc2gpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyMi0wNC0wM1QyMjoxNzozMSswMjowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjItMDQtMDRUMTE6NDc6MjErMDI6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjItMDQtMDRUMTE6NDc6MjErMDI6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjExMWI2ZWEwLWJkYWMtNDE0Zi1iMzJhLTA0NTg4ZjFiNzRjZCIgeG1wTU06RG9jdW1lbnRJ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";
+var _imports_3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABGCAYAAABbnhMrAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFG0lEQVR4nO2cT4sTSRjGn8pkZCTRBUVnwMGDCeJJUPCDeNhl/bMHZz/B3jMMId73sicR5uIQT/sFvMh8gARykiW5CO5lQVnWoGhM9jBdbXXlrU5311t/ovOc0p1Od/Wvn/et6reKiMVigVNVVy10A9ZdpwAtVec4ybP+85XH3P3xJ33XolE3Pj9h2SRvYgGYI5lghbYNAJjO5gAAAqR6XNQwXQJcGD4vSYLsdHsAgN97B6bzRAfTZQ5Mb5YI3yVJeADw237XdFh0QwbXnYgoAg8AHh/sZ7ZzIEYlwTEOlCFokPUFDJ1NFOHs2oEsITedzamHFEU4r9U4MEaILgE6ubnYILoC6PSmVuRcr3IBMIQjgrkwSA58s7mBN5sbVueIxYXcbyKFnHDl8xfmy6bX9j60WateWFcMHQqnA60aPxmP08/Hx8d4tLdn0w5vTmQBOBmP0Wq30Uzy2vuCIapCkyoLbzqbm6o5XiByOTDjvubmRi5EEzgAefCmABrE/n+ns/kPObVFp2J5Fx69+is9SavdJo/JgwbkgiuiSaNeaxH7nbuQCyBQMgdWzHOfcBI1pN0IF64VQKAYxEx12uRYSmrNUC9/AXjdqNeuGq7lTNwAVRkryaPhADdv3U6PKQKx0+3plWpyMK250DlAlyX9pcaPhgN182+m63wEsGX4znlv7KXrGg0HGXgP7/0MKD0q1cEo+kC5D0jdZoLnRewO1FxG6sXL4zvbOzvnC57yLLAcrjJUG/UaprP5fwDOyeN8DmlCDJ4W2zs7f+o7TS7sdHtUh6FXqc/p36nXq9rQImJxYBHXIXsju9QB8o2mjKTjQlVnfDhwAc0FCfB31MGT8fh12Qsk8N5WaJu1Qk4qmSxzFcAMMIevQRcqtsNKIedELhr2/wOgXhLeknyFdLA5kSSMqbC7ZAuvapuqKGhBdTQcLIXd4VE/hae+uuXJdJwPF0ZZkZZAirgwces3NalU5mZyX7MkSMphnW5P7WSM53E9JnS9PtAk8oYPj/oATpwn4ej5UMLce3gf11pUCdCvXAAUMD/pQi/2VCciwf36y4PZpcuX681m06aNbGIpZxFLfFcCTMpZS8dKF0pJFz56cA8APrXa7TNV2uiqzBVlJ6JKyX+ft7a2nMzh2MgVQOoJU/vK3MjbK7u70T1wH0t8BUqETBKq+r4vALZtGuNqTOgqB5JS8p6U8eKHR/0MzLJVGpOUXMiSB72FRBl4AO1EDnE70QtAAl4MYulIokvKPsTpQpZhQaQOyxXX3EkoB5YOH33ORL4Lh1aod2ErOaoXVlIIgJWT92Q8ztQLLbVew5hvVb4BWg0dGN3Hpu/VgWtZjXHqvlA9crQOzFvtQMEKFdrRAjQNzvOq1QXFutyNpRpTVOpa6sz+rwsuc6XOmQD540FqLuXxwT4a9ZrI+a+G0vINEEhyYVFoumQutBhMC4AHHhAmhAWwHKJFVngdHvUFAGGa7lwVyp1uj321qlcHAicuHA0H6UUpF+a4UyRhvABAhqhpW/4e4HMfEMCBN29cBxQXqs6Tn1V4yvcCSP8SRQDZiXd9OYgMc7lPuo979WrIXlhIp+ng5PaKPJmBKD/7Hs4EAZgsMgcSiLokVN2hiXvVBedkTqNcCPC7DwiQA1Ulk1GZfJgBpm0DEAp8+d8ypdbiUKv9bRQUIAA86z8v2wAdYunfc0IM+iZSAV5GFeCxKxjAkPD+ePLU5tIZBQ/hdVe0xYR10SlAS/0PqmBDCD2yIvMAAAAASUVORK5CYII=";
 var RoleSelectionCard_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _hoisted_1$9 = {
+const _hoisted_1$a = { class: "imgWrapper" };
+const _hoisted_2$7 = {
   key: 0,
-  src: _imports_0$3,
+  src: _imports_0$4,
   alt: ""
 };
-const _hoisted_2$7 = {
+const _hoisted_3$6 = {
   key: 1,
   src: _imports_1$3,
   alt: ""
 };
-const _hoisted_3$6 = {
+const _hoisted_4$4 = {
   key: 2,
   src: _imports_2$1,
   alt: ""
 };
-const _hoisted_4$3 = {
+const _hoisted_5$2 = {
   key: 3,
   src: _imports_3,
   alt: ""
 };
-const _hoisted_5$1 = { class: "roleDescription" };
+const _hoisted_6$1 = { class: "roleDescription" };
 const _sfc_main$c = {
   props: {
     role: Object
@@ -254,21 +258,24 @@ const _sfc_main$c = {
         class: "selectionCard",
         style: normalizeStyle({ borderColor: unref(color) })
       }, [
-        unref(props).role == unref(Role).Jump ? (openBlock(), createElementBlock("img", _hoisted_1$9)) : unref(props).role == unref(Role).ShotCharge ? (openBlock(), createElementBlock("img", _hoisted_2$7)) : unref(props).role == unref(Role).ShotRelease ? (openBlock(), createElementBlock("img", _hoisted_3$6)) : unref(props).role == unref(Role).Enemy ? (openBlock(), createElementBlock("img", _hoisted_4$3)) : createCommentVNode("", true),
+        createBaseVNode("div", _hoisted_1$a, [
+          unref(props).role == unref(Role).Jump ? (openBlock(), createElementBlock("img", _hoisted_2$7)) : unref(props).role == unref(Role).ShotCharge ? (openBlock(), createElementBlock("img", _hoisted_3$6)) : unref(props).role == unref(Role).ShotRelease ? (openBlock(), createElementBlock("img", _hoisted_4$4)) : unref(props).role == unref(Role).Enemy ? (openBlock(), createElementBlock("img", _hoisted_5$2)) : createCommentVNode("", true)
+        ]),
         createBaseVNode("hr", {
           style: normalizeStyle({ borderColor: unref(color) })
         }, null, 4),
-        createBaseVNode("div", _hoisted_5$1, toDisplayString(unref(description)), 1)
+        createBaseVNode("div", _hoisted_6$1, toDisplayString(unref(description)), 1)
       ], 4);
     };
   }
 };
-var RoleSelectionCard = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-f73dd7cc"]]);
+var RoleSelectionCard = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["__scopeId", "data-v-c15359ac"]]);
 var RoleSelection_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _withScopeId$6 = (n) => (pushScopeId("data-v-173202be"), n = n(), popScopeId(), n);
-const _hoisted_1$8 = { id: "playerName" };
+const _withScopeId$6 = (n) => (pushScopeId("data-v-4b0bd811"), n = n(), popScopeId(), n);
+const _hoisted_1$9 = { id: "playerName" };
 const _hoisted_2$6 = /* @__PURE__ */ _withScopeId$6(() => /* @__PURE__ */ createBaseVNode("h2", null, "Choose your role:", -1));
-const _hoisted_3$5 = { id: "selectionGrid" };
+const _hoisted_3$5 = { class: "flexContainer" };
+const _hoisted_4$3 = { id: "selectionGrid" };
 const _sfc_main$b = {
   props: {
     playerInfo: Object,
@@ -284,35 +291,37 @@ const _sfc_main$b = {
           onHandle_btn_back: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("navigate_to", unref(ScreenType).EnterName)),
           onHandle_btn_leave: _cache[1] || (_cache[1] = ($event) => _ctx.$emit("handle_btn_leave"))
         }, null, 8, ["screenType"]),
-        createBaseVNode("h1", _hoisted_1$8, toDisplayString(__props.playerInfo.name), 1),
+        createBaseVNode("h1", _hoisted_1$9, toDisplayString(__props.playerInfo.name), 1),
         _hoisted_2$6,
         createBaseVNode("div", _hoisted_3$5, [
-          createVNode(RoleSelectionCard, {
-            role: unref(Role).Jump,
-            class: normalizeClass({ selected: unref(props).roleState.jump.selected }),
-            onClick: _cache[2] || (_cache[2] = ($event) => _ctx.$emit("handle_select_role", unref(Role).Jump))
-          }, null, 8, ["role", "class"]),
-          createVNode(RoleSelectionCard, {
-            role: unref(Role).ShotCharge,
-            class: normalizeClass({ selected: unref(props).roleState.shotCharge.selected }),
-            onClick: _cache[3] || (_cache[3] = ($event) => _ctx.$emit("handle_select_role", unref(Role).ShotCharge))
-          }, null, 8, ["role", "class"]),
-          createVNode(RoleSelectionCard, {
-            role: unref(Role).ShotRelease,
-            class: normalizeClass({ selected: unref(props).roleState.shotRelease.selected }),
-            onClick: _cache[4] || (_cache[4] = ($event) => _ctx.$emit("handle_select_role", unref(Role).ShotRelease))
-          }, null, 8, ["role", "class"]),
-          createVNode(RoleSelectionCard, {
-            role: unref(Role).Enemy,
-            class: normalizeClass({ selected: unref(props).roleState.enemy.selected }),
-            onClick: _cache[5] || (_cache[5] = ($event) => _ctx.$emit("handle_select_role", unref(Role).Enemy))
-          }, null, 8, ["role", "class"])
+          createBaseVNode("div", _hoisted_4$3, [
+            createVNode(RoleSelectionCard, {
+              role: unref(Role).Jump,
+              class: normalizeClass({ selected: unref(props).roleState.jump.selected }),
+              onClick: _cache[2] || (_cache[2] = ($event) => _ctx.$emit("handle_select_role", unref(Role).Jump))
+            }, null, 8, ["role", "class"]),
+            createVNode(RoleSelectionCard, {
+              role: unref(Role).ShotCharge,
+              class: normalizeClass({ selected: unref(props).roleState.shotCharge.selected }),
+              onClick: _cache[3] || (_cache[3] = ($event) => _ctx.$emit("handle_select_role", unref(Role).ShotCharge))
+            }, null, 8, ["role", "class"]),
+            createVNode(RoleSelectionCard, {
+              role: unref(Role).ShotRelease,
+              class: normalizeClass({ selected: unref(props).roleState.shotRelease.selected }),
+              onClick: _cache[4] || (_cache[4] = ($event) => _ctx.$emit("handle_select_role", unref(Role).ShotRelease))
+            }, null, 8, ["role", "class"]),
+            createVNode(RoleSelectionCard, {
+              role: unref(Role).Enemy,
+              class: normalizeClass({ selected: unref(props).roleState.enemy.selected }),
+              onClick: _cache[5] || (_cache[5] = ($event) => _ctx.$emit("handle_select_role", unref(Role).Enemy))
+            }, null, 8, ["role", "class"])
+          ])
         ])
       ], 64);
     };
   }
 };
-var RoleSelection = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-173202be"]]);
+var RoleSelection = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["__scopeId", "data-v-4b0bd811"]]);
 var ColorBorder_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$a = {
   props: {
@@ -348,7 +357,7 @@ const _sfc_main$a = {
 };
 var ColorBorder = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-3e087d30"]]);
 var TriggerSelectionCard_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _hoisted_1$7 = { id: "triggerSelectionCard" };
+const _hoisted_1$8 = { id: "triggerSelectionCard" };
 const _hoisted_2$5 = {
   key: 0,
   class: "icon shake"
@@ -368,16 +377,16 @@ const _sfc_main$9 = {
   setup(__props) {
     const props = __props;
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1$7, [
+      return openBlock(), createElementBlock("div", _hoisted_1$8, [
         unref(props).triggerOption == unref(TriggerOption).Shake ? (openBlock(), createElementBlock("div", _hoisted_2$5)) : unref(props).triggerOption == unref(TriggerOption).Touch ? (openBlock(), createElementBlock("div", _hoisted_3$4)) : unref(props).triggerOption == unref(TriggerOption).Voice ? (openBlock(), createElementBlock("div", _hoisted_4$2)) : createCommentVNode("", true)
       ]);
     };
   }
 };
-var TriggerSelectionCard = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-294a335e"]]);
+var TriggerSelectionCard = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-923d7022"]]);
 var TriggerSelection_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _withScopeId$5 = (n) => (pushScopeId("data-v-14d46df8"), n = n(), popScopeId(), n);
-const _hoisted_1$6 = /* @__PURE__ */ _withScopeId$5(() => /* @__PURE__ */ createBaseVNode("h2", null, "Choose your playstyle", -1));
+const _withScopeId$5 = (n) => (pushScopeId("data-v-620d820e"), n = n(), popScopeId(), n);
+const _hoisted_1$7 = /* @__PURE__ */ _withScopeId$5(() => /* @__PURE__ */ createBaseVNode("h2", null, "Choose your playstyle", -1));
 const _hoisted_2$4 = { id: "triggerSelectionGrid" };
 const _sfc_main$8 = {
   props: {
@@ -401,7 +410,7 @@ const _sfc_main$8 = {
           onHandle_btn_leave: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("handle_btn_leave"))
         }, null, 8, ["screenType", "onHandle_btn_back"]),
         createBaseVNode("h1", null, toDisplayString(__props.playerInfo.name), 1),
-        _hoisted_1$6,
+        _hoisted_1$7,
         createBaseVNode("div", _hoisted_2$4, [
           createVNode(TriggerSelectionCard, {
             triggerOption: unref(TriggerOption).Shake,
@@ -420,11 +429,11 @@ const _sfc_main$8 = {
     };
   }
 };
-var TriggerSelection = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-14d46df8"]]);
-var _imports_0$2 = "./assets/ready.b6485a90.svg";
+var TriggerSelection = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-620d820e"]]);
+var _imports_0$3 = "./assets/ready.b6485a90.svg";
 var _imports_1$2 = "./assets/unready.8176aec6.svg";
 var ControlElement_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _hoisted_1$5 = {
+const _hoisted_1$6 = {
   key: 0,
   class: "icon shake"
 };
@@ -447,24 +456,22 @@ const _sfc_main$7 = {
         id: "controlElement",
         class: normalizeClass({ background: unref(props).triggerOption == unref(TriggerOption).Touch })
       }, [
-        unref(props).triggerOption == unref(TriggerOption).Shake ? (openBlock(), createElementBlock("div", _hoisted_1$5)) : unref(props).triggerOption == unref(TriggerOption).Touch ? (openBlock(), createElementBlock("div", _hoisted_2$3)) : unref(props).triggerOption == unref(TriggerOption).Voice ? (openBlock(), createElementBlock("div", _hoisted_3$3)) : createCommentVNode("", true)
+        unref(props).triggerOption == unref(TriggerOption).Shake ? (openBlock(), createElementBlock("div", _hoisted_1$6)) : unref(props).triggerOption == unref(TriggerOption).Touch ? (openBlock(), createElementBlock("div", _hoisted_2$3)) : unref(props).triggerOption == unref(TriggerOption).Voice ? (openBlock(), createElementBlock("div", _hoisted_3$3)) : createCommentVNode("", true)
       ], 2);
     };
   }
 };
-var ControlElement = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-270730a7"]]);
+var ControlElement = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["__scopeId", "data-v-49f7764a"]]);
 var Instruction_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _withScopeId$4 = (n) => (pushScopeId("data-v-697f0c7a"), n = n(), popScopeId(), n);
-const _hoisted_1$4 = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ createBaseVNode("h1", null, "Instruction", -1));
-const _hoisted_2$2 = {
+const _withScopeId$4 = (n) => (pushScopeId("data-v-77b5cc08"), n = n(), popScopeId(), n);
+const _hoisted_1$5 = { class: "flexContainer" };
+const _hoisted_2$2 = { class: "top" };
+const _hoisted_3$2 = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ createBaseVNode("h1", null, "Instruction", -1));
+const _hoisted_4$1 = {
   key: 2,
-  class: "heartbeat"
-};
-const _hoisted_3$2 = {
-  key: 3,
   id: "startingOverlay"
 };
-const _hoisted_4$1 = { id: "countdown" };
+const _hoisted_5$1 = { id: "countdown" };
 const _sfc_main$6 = {
   props: {
     playerInfo: Object,
@@ -560,37 +567,46 @@ const _sfc_main$6 = {
           onHandle_btn_back: unref(handle_btn_back),
           onHandle_btn_leave: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("handle_btn_leave"))
         }, null, 8, ["screenType", "onHandle_btn_back"]),
-        _hoisted_1$4,
-        createBaseVNode("h3", null, toDisplayString(unref(description_1)), 1),
-        createBaseVNode("h3", null, toDisplayString(unref(description_2)), 1),
-        createVNode(ControlElement, {
-          onClick: unref(handle_control_element),
-          triggerOption: unref(props).playerInfo.triggerOption
-        }, null, 8, ["onClick", "triggerOption"]),
-        !unref(ready) ? (openBlock(), createElementBlock("img", {
-          key: 0,
-          id: "btnReady",
-          src: _imports_0$2,
-          onClick: _cache[1] || (_cache[1] = (...args) => unref(toggleReady) && unref(toggleReady)(...args)),
-          alt: ""
-        })) : (openBlock(), createElementBlock("img", {
-          key: 1,
-          id: "btnReady",
-          src: _imports_1$2,
-          onClick: _cache[2] || (_cache[2] = (...args) => unref(toggleReady) && unref(toggleReady)(...args)),
-          alt: ""
-        })),
-        createBaseVNode("h3", null, toDisplayString(unref(readyText)), 1),
-        unref(ready) ? (openBlock(), createElementBlock("h3", _hoisted_2$2, "Waiting for other players...")) : createCommentVNode("", true),
-        __props.starting ? (openBlock(), createElementBlock("div", _hoisted_3$2, [
-          createBaseVNode("h1", _hoisted_4$1, toDisplayString(unref(counter)), 1)
-        ])) : createCommentVNode("", true)
+        createBaseVNode("div", _hoisted_1$5, [
+          createBaseVNode("div", _hoisted_2$2, [
+            _hoisted_3$2,
+            createBaseVNode("h3", null, toDisplayString(unref(description_1)), 1),
+            createBaseVNode("h3", null, toDisplayString(unref(description_2)), 1)
+          ]),
+          createVNode(ControlElement, {
+            onClick: unref(handle_control_element),
+            triggerOption: unref(props).playerInfo.triggerOption
+          }, null, 8, ["onClick", "triggerOption"]),
+          createBaseVNode("div", null, [
+            !unref(ready) ? (openBlock(), createElementBlock("img", {
+              key: 0,
+              id: "btnReady",
+              src: _imports_0$3,
+              onClick: _cache[1] || (_cache[1] = (...args) => unref(toggleReady) && unref(toggleReady)(...args)),
+              alt: ""
+            })) : (openBlock(), createElementBlock("img", {
+              key: 1,
+              id: "btnReady",
+              src: _imports_1$2,
+              onClick: _cache[2] || (_cache[2] = (...args) => unref(toggleReady) && unref(toggleReady)(...args)),
+              alt: ""
+            })),
+            createBaseVNode("h3", null, toDisplayString(unref(readyText)), 1),
+            createBaseVNode("h3", {
+              class: normalizeClass(["heartbeat", { hide: !unref(ready) }])
+            }, " Waiting for other players... ", 2),
+            __props.starting ? (openBlock(), createElementBlock("div", _hoisted_4$1, [
+              createBaseVNode("h1", _hoisted_5$1, toDisplayString(unref(counter)), 1)
+            ])) : createCommentVNode("", true)
+          ])
+        ])
       ], 64);
     };
   }
 };
-var Instruction = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-697f0c7a"]]);
+var Instruction = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-77b5cc08"]]);
 var Gameplay_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _hoisted_1$4 = { class: "flexContainer" };
 const _sfc_main$5 = {
   props: {
     playerInfo: Object
@@ -645,19 +661,23 @@ const _sfc_main$5 = {
           screenType: unref(ScreenType).Gameplay,
           onHandle_btn_options: _cache[0] || (_cache[0] = ($event) => _ctx.$emit("show_options"))
         }, null, 8, ["screenType"]),
-        createBaseVNode("h1", null, toDisplayString(unref(props).playerInfo.name), 1),
-        createBaseVNode("h3", null, toDisplayString(unref(description_1)), 1),
-        createBaseVNode("h3", null, toDisplayString(unref(description_2)), 1),
-        createVNode(ControlElement, {
-          onClick: unref(handle_control_element),
-          triggerOption: unref(props).playerInfo.triggerOption
-        }, null, 8, ["onClick", "triggerOption"])
+        createBaseVNode("div", _hoisted_1$4, [
+          createBaseVNode("div", null, [
+            createBaseVNode("h1", null, toDisplayString(unref(props).playerInfo.name), 1),
+            createBaseVNode("h3", null, toDisplayString(unref(description_1)), 1),
+            createBaseVNode("h3", null, toDisplayString(unref(description_2)), 1)
+          ]),
+          createVNode(ControlElement, {
+            onClick: unref(handle_control_element),
+            triggerOption: unref(props).playerInfo.triggerOption
+          }, null, 8, ["onClick", "triggerOption"])
+        ])
       ], 64);
     };
   }
 };
-var Gameplay = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-26149bb2"]]);
-var _imports_0$1 = "./assets/impressum.790ad1b6.svg";
+var Gameplay = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-1b41d0de"]]);
+var _imports_0$2 = "./assets/impressum.790ad1b6.svg";
 var _imports_1$1 = "./assets/sound_unmuted.552d3431.svg";
 var _imports_2 = "./assets/refresh.c01e1f53.svg";
 var Options_vue_vue_type_style_index_0_scoped_true_lang = "";
@@ -682,7 +702,7 @@ const _sfc_main$4 = {
         }, null, 8, ["screenType"]),
         createBaseVNode("div", _hoisted_1$3, [
           createBaseVNode("img", {
-            src: _imports_0$1,
+            src: _imports_0$2,
             alt: "",
             onClick: _cache[1] || (_cache[1] = ($event) => _ctx.$emit("navigate_to", unref(ScreenType).Impressum))
           }),
@@ -699,17 +719,23 @@ const _sfc_main$4 = {
   }
 };
 var Options = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-5e8d8693"]]);
+var _imports_0$1 = "data:image/png;base64,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";
 var Impressum_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _withScopeId$2 = (n) => (pushScopeId("data-v-c6313060"), n = n(), popScopeId(), n);
+const _withScopeId$2 = (n) => (pushScopeId("data-v-4e81965e"), n = n(), popScopeId(), n);
 const _hoisted_1$2 = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createBaseVNode("div", { id: "impressumContainer" }, [
-  /* @__PURE__ */ createBaseVNode("h1", null, "Impressum"),
-  /* @__PURE__ */ createBaseVNode("h2", null, "Created by:"),
+  /* @__PURE__ */ createBaseVNode("h1", null, "Created by:"),
   /* @__PURE__ */ createBaseVNode("div", null, [
-    /* @__PURE__ */ createBaseVNode("h2", null, "Vanessa Buchmann"),
-    /* @__PURE__ */ createBaseVNode("h2", null, "Nicole B\xE4nninger"),
-    /* @__PURE__ */ createBaseVNode("h2", null, "Michael Brechb\xFChl"),
-    /* @__PURE__ */ createBaseVNode("h2", null, "Nathalie Schwartz"),
-    /* @__PURE__ */ createBaseVNode("h2", null, "Nicolas Vondru")
+    /* @__PURE__ */ createBaseVNode("h3", null, "Vanessa Buchmann"),
+    /* @__PURE__ */ createBaseVNode("h3", null, "Nicole B\xE4nninger"),
+    /* @__PURE__ */ createBaseVNode("h3", null, "Michael Brechb\xFChl"),
+    /* @__PURE__ */ createBaseVNode("h3", null, "Nathalie Schwartz"),
+    /* @__PURE__ */ createBaseVNode("h3", null, "Nicolas Vondru")
+  ]),
+  /* @__PURE__ */ createBaseVNode("div", { class: "imgWrapper" }, [
+    /* @__PURE__ */ createBaseVNode("img", {
+      src: _imports_0$1,
+      alt: ""
+    })
   ])
 ], -1));
 const _sfc_main$3 = {
@@ -727,7 +753,7 @@ const _sfc_main$3 = {
     };
   }
 };
-var Impressum = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-c6313060"]]);
+var Impressum = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-4e81965e"]]);
 var _imports_0 = "./assets/tick.f821d064.svg";
 var _imports_1 = "./assets/quit_x.55f14bfb.svg";
 var LeaveConfirmation_vue_vue_type_style_index_0_scoped_true_lang = "";
@@ -865,10 +891,10 @@ const _sfc_main = {
       console.log("Emitting trigger: " + playerInfo.role.role);
       socket.emit(playerInfo.role.role);
     };
-    let socket = io(url || "https://2a5a-2a02-1210-88f4-c400-91a5-22d0-6b51-b1b7.ngrok.io/");
+    let socket = io(url || "http://192.168.1.109:5501");
     socket.on("connection success", (response) => {
       console.log(response);
-      socket.emit("join room", roomId || "nSTjRDJTC-_QkiJeAAAB");
+      socket.emit("join room", roomId || "91OZYFKbhdFVxVwAAAAD");
       requestRoleState();
     });
     socket.on("disconnect", () => {

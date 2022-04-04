@@ -173,7 +173,8 @@ h3 {
   text-align: center;
 }
 #btnReady {
-  height: 80px;
+  height: 60px;
+  margin-top: 15px;
 }
 
 .heartbeat {
@@ -188,7 +189,7 @@ h3 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -196,7 +197,7 @@ h3 {
 }
 #countdown {
   font-size: 10rem;
-  color: black;
+  color: rgb(37, 37, 37);
   animation: heartbeat 0.5s infinite alternate;
 }
 @keyframes heartbeat {
@@ -211,7 +212,7 @@ h3 {
   height: 100%;
   width: 100%;
   text-align: center;
-  gap: 30px;
+  /* gap: 30px; */
 }
 .hide {
   opacity: 0;

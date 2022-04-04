@@ -38,11 +38,10 @@ let name = ref("");
 }
 #nameBar {
   position: relative;
-  left: 0px;
-  right: 0px;
+  width: 90%;
 }
 #inputName {
-  color: black;
+  color: rgb(37, 37, 37);
   width: 100%;
   text-align: center;
   padding: 20px;
@@ -83,5 +82,6 @@ let name = ref("");
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 </style>

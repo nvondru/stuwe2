@@ -1,6 +1,11 @@
 <template>
   <PageBackground />
   <ColorBorder :role="props.playerInfo.role" />
+
+  <div v-if="props.paused" id="pausedOverlay">
+    <h1>Game paused...</h1>
+  </div>
+
   <HeaderBar
     :screenType="ScreenType.Gameplay"
     @handle_btn_options="$emit('show_options')"
@@ -32,6 +37,7 @@ import ControlElement from "../Modules/ControlElement.vue";
 
 let props = defineProps({
   playerInfo: Object,
+  paused: Object,
 });
 
 let emit = defineEmits(["handle_trigger"]);
@@ -107,5 +113,22 @@ h3 {
   width: 100%;
   justify-content: first baseline;
   gap: 30px;
+}
+#pausedOverlay {
+  position: absolute;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+#pausedOverlay h1 {
+  color: rgb(37, 37, 37);
 }
 </style>

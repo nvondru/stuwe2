@@ -124,6 +124,67 @@ class Controller {
       }
     });
 
+    this.socket.on("options opened", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("pause game", {}),
+        this
+      );
+      this.room.controllers.forEach((controller) => {
+        if (controller != this) {
+          controller.socket.emit("show paused overlay");
+        }
+      });
+    });
+
+    this.socket.on("options closed", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("resume game", {}),
+        this
+      );
+      this.room.controllers.forEach((controller) => {
+        if (controller != this) {
+          controller.socket.emit("hide paused overlay");
+        }
+      });
+    });
+
+    this.socket.on("mute sound", () => {
+      this.room.emitTo(this.room.viewers, new SocketEvent("mute sound"), this);
+      this.room.emitTo(
+        this.room.controllers,
+        new SocketEvent("set muted"),
+        this
+      );
+    });
+
+    this.socket.on("unmute sound", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("unmute sound"),
+        this
+      );
+      this.room.emitTo(
+        this.room.controllers,
+        new SocketEvent("set unmuted"),
+        this
+      );
+    });
+
+    this.socket.on("restart level", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("restart level"),
+        this
+      );
+      this.room.controllers.forEach((controller) => {
+        if (controller != this) {
+          controller.socket.emit("hide paused overlay");
+        }
+      });
+    });
+
     this.socket.on("jump", () => {
       this.room.emitTo(this.room.viewers, new SocketEvent("jump", {}), this);
     });

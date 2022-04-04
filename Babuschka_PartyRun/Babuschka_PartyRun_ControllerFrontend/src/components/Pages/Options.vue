@@ -10,13 +10,20 @@
       alt=""
       @click="$emit('navigate_to', ScreenType.Impressum)"
     />
-    <img src="../../assets/sound_unmuted.svg" alt="" />
-    <img src="../../assets/refresh.svg" alt="" />
     <img
-      src="../../assets/play.svg"
+      v-if="!props.muted"
+      src="../../assets/sound_unmuted.svg"
       alt=""
-      @click="$emit('navigate_to', ScreenType.Gameplay)"
+      @click="$emit('mute_sound')"
     />
+    <img
+      v-else
+      src="../../assets/sound_muted.svg"
+      alt=""
+      @click="$emit('unmute_sound')"
+    />
+    <img src="../../assets/refresh.svg" alt="" @click="handleBtnRestart" />
+    <img src="../../assets/play.svg" alt="" @click="handleBtnResume" />
   </div>
 </template>
 
@@ -26,6 +33,21 @@ import ScreenType from "../../classes/ScreenType.js";
 // Components
 import PageBackground from "../Modules/PageBackground.vue";
 import HeaderBar from "../Modules/HeaderBar.vue";
+let props = defineProps({
+  muted: Object,
+});
+
+let emit = defineEmits(["navigate_to", "hide_options", "restart_level"]);
+
+let handleBtnResume = () => {
+  emit("navigate_to", ScreenType.Gameplay);
+  emit("hide_options");
+};
+
+let handleBtnRestart = () => {
+  emit("navigate_to", ScreenType.Gameplay);
+  emit("restart_level");
+};
 </script>
 
 <style scoped>

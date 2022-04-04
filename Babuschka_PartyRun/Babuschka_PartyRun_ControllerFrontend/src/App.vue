@@ -33,13 +33,19 @@
   <Gameplay
     v-if="currentScreen.type == ScreenType.Gameplay.type"
     :playerInfo="playerInfo"
+    :paused="paused"
     @show_options="showOptions"
     @handle_trigger="trigger"
   />
   <Options
     v-if="currentScreen.type == ScreenType.Options.type"
+    :muted="muted"
     @navigate_to="setCurrentScreen"
+    @hide_options="hideOptions"
     @handle_btn_leave="setCurrentScreen(ScreenType.LeaveConfirmation)"
+    @mute_sound="muteSound"
+    @unmute_sound="unmuteSound"
+    @restart_level="restartLevel"
   />
   <Impressum
     v-if="currentScreen.type == ScreenType.Impressum.type"
@@ -52,7 +58,6 @@
     @abort_leave_game="setCurrentScreen(lastScreen)"
   />
   <Disconnected v-if="currentScreen.type == ScreenType.Disconnected.type" />
-  <!-- <h1 style="color: black">Hello Wolrd</h1> -->
 </template>
 
 <script setup>
@@ -91,6 +96,8 @@ let playerInfo = {
 
 let roleState = ref([]);
 let starting = ref(false);
+let paused = ref(false);
+let muted = ref(false);
 
 let setPlayerName = (name) => {
   playerInfo.name = name;
@@ -123,12 +130,28 @@ let setCurrentScreen = (screen) => {
 };
 
 let showOptions = () => {
+  socket.emit("options opened");
   setCurrentScreen(ScreenType.Options);
 };
 
+let hideOptions = () => {
+  socket.emit("options closed");
+};
 let leaveGame = () => {
   setCurrentScreen(ScreenType.Disconnected);
   socket.disconnect();
+};
+
+let muteSound = () => {
+  socket.emit("mute sound");
+};
+
+let unmuteSound = () => {
+  socket.emit("unmute sound");
+};
+
+let restartLevel = () => {
+  socket.emit("restart level");
 };
 
 let requestRoleState = () => {
@@ -151,16 +174,17 @@ let trigger = () => {
   socket.emit(playerInfo.role.role);
 };
 
-let socket = io(url || "http://192.168.1.109:5501");
+let socket = io(url || "192.168.1.109:5501");
 
 socket.on("connection success", (response) => {
   console.log(response);
-  socket.emit("join room", roomId || "91OZYFKbhdFVxVwAAAAD");
+  socket.emit("join room", roomId || "lJ9teGHNO49FUExPAAAZ");
   requestRoleState();
 });
 
 socket.on("disconnect", () => {
   setCurrentScreen(ScreenType.Disconnected);
+  console.log("Disconnected from the server");
 });
 
 socket.on("update role state", (states) => {
@@ -180,6 +204,19 @@ socket.on("start game", () => {
 });
 socket.on("reset ready state", () => {
   starting.value = false;
+});
+socket.on("show paused overlay", () => {
+  paused.value = true;
+});
+
+socket.on("hide paused overlay", () => {
+  paused.value = false;
+});
+socket.on("set muted", () => {
+  muted.value = true;
+});
+socket.on("set unmuted", () => {
+  muted.value = false;
 });
 </script>
 

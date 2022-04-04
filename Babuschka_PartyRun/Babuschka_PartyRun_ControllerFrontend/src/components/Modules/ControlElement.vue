@@ -28,7 +28,7 @@ let props = defineProps({
 
 <style scoped>
 #controlElement {
-  padding: 20px;
+  padding: 1%;
   box-sizing: border-box;
   width: 100%;
   height: 100%;

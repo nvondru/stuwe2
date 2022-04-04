@@ -28,7 +28,7 @@ let props = defineProps({
 #triggerSelectionCard {
   padding: 1rem;
   box-sizing: border-box;
-  width: 100%;
+  width: 80%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   border: 6px solid white;

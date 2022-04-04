@@ -39,7 +39,7 @@ switch (props.role) {
   height: 100%;
   top: 0;
   left: 0;
-  border: 10px solid;
+  border: 5px solid;
   box-sizing: border-box;
   z-index: -5;
 }

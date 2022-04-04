@@ -40,7 +40,7 @@ import PageBackground from "../Modules/PageBackground.vue";
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 90px 0 60px 0;
+  padding: 15px;
   text-align: center;
 }
 

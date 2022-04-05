@@ -13,7 +13,9 @@
       <h3>{{ description_2 }}</h3>
     </div>
     <ControlElement
+      :permissionGranted="props.permissionGranted"
       @click="handle_control_element"
+      @trigger="$emit('handle_trigger')"
       :triggerOption="props.playerInfo.triggerOption"
     />
     <div>
@@ -58,6 +60,7 @@ import ControlElement from "../Modules/ControlElement.vue";
 let props = defineProps({
   playerInfo: Object,
   starting: Object,
+  permissionGranted: Object,
 });
 
 const emit = defineEmits([
@@ -75,18 +78,63 @@ let description_2 = "";
 let readyText = ref("Tap to ready up");
 switch (props.playerInfo.triggerOption) {
   case TriggerOption.Shake:
-    description_1 = "Shake your phone to jump.";
-    description_2 = "Shake again to doublejump.";
+    switch (props.playerInfo.role) {
+      case Role.Jump:
+        description_1 = "Shake your phone to jump.";
+        description_2 = "Shake again to doublejump.";
+        break;
+
+      case Role.ShotCharge:
+        description_1 = "Shake your phone to charge a shot.";
+        description_2 = "Consumes a snowflake.";
+        break;
+
+      case Role.ShotRelease:
+        description_1 = "Shake your phone to release the shot.";
+        description_2 = "Only if a shot is charging.";
+        break;
+
+      case Role.Enemy:
+        description_1 = "This functionality is not supported yet.";
+        description_2 = ":(";
+        break;
+
+      default:
+        break;
+    }
+
     break;
 
   case TriggerOption.Touch:
-    description_1 = "Tap to jump.";
-    description_2 = "Tap again to doublejump.";
+    switch (props.playerInfo.role) {
+      case Role.Jump:
+        description_1 = "Tap to jump.";
+        description_2 = "Tap again to doublejump.";
+        break;
+
+      case Role.ShotCharge:
+        description_1 = "Tap to charge a shot.";
+        description_2 = "Consumes a snowflake.";
+        break;
+
+      case Role.ShotRelease:
+        description_1 = "Tap to release the shot.";
+        description_2 = "Only if a shot is charging.";
+        break;
+
+      case Role.Enemy:
+        description_1 = "This functionality is not supported yet.";
+        description_2 = ":(";
+        break;
+
+      default:
+        break;
+    }
     break;
 
   case TriggerOption.Voice:
-    description_1 = "Say 'jump' to jump.";
-    description_2 = "Say 'jump' again to doublejump.";
+    description_1 = "This functionality is not supported yet.";
+    description_2 = ":(";
     break;
 
   default:

@@ -24,6 +24,7 @@
     v-if="currentScreen.type == ScreenType.Instruction.type"
     :playerInfo="playerInfo"
     :starting="starting"
+    :permissionGranted="permissionGranted"
     @navigate_to="setCurrentScreen"
     @release_trigger="releaseTrigger"
     @handle_ready_change="setPlayerReadyState"
@@ -34,8 +35,12 @@
     v-if="currentScreen.type == ScreenType.Gameplay.type"
     :playerInfo="playerInfo"
     :paused="paused"
+    :restarting="restarting"
+    :permissionGranted="permissionGranted"
     @show_options="showOptions"
     @handle_trigger="trigger"
+    @restart_level="restartLevel"
+    @quit_to_lobby="requestQuitToLobby"
   />
   <Options
     v-if="currentScreen.type == ScreenType.Options.type"
@@ -57,6 +62,7 @@
     :lastScreen="lastScreen"
     @confirm_leave_game="leaveGame"
     @abort_leave_game="setCurrentScreen(lastScreen)"
+    @confirm_quit_to_lobby="requestQuitToLobby"
   />
   <Disconnected v-if="currentScreen.type == ScreenType.Disconnected.type" />
 </template>
@@ -99,6 +105,8 @@ let roleState = ref([]);
 let starting = ref(false);
 let paused = ref(false);
 let muted = ref(false);
+let restarting = ref(false);
+let permissionGranted = ref(true);
 
 let setPlayerName = (name) => {
   playerInfo.name = name;
@@ -114,6 +122,9 @@ let setPlayerRole = (role) => {
 
 let setPlayerTriggerOption = (triggerOption) => {
   playerInfo.triggerOption = triggerOption;
+  if (triggerOption == TriggerOption.Shake) {
+    permissionGranted.value = true;
+  }
   socket.emit("trigger option selected", playerInfo);
   setCurrentScreen(ScreenType.Instruction);
 };
@@ -155,6 +166,11 @@ let restartLevel = () => {
   socket.emit("restart level");
 };
 
+let requestQuitToLobby = () => {
+  // reset role selections -> todo
+  socket.emit("request quit to lobby");
+};
+
 let requestRoleState = () => {
   socket.emit("request role state");
 };
@@ -175,11 +191,11 @@ let trigger = () => {
   socket.emit(playerInfo.role.role);
 };
 
-let socket = io(url || "192.168.1.109:5501");
+let socket = io(url || "10.155.98.108:5501");
 
 socket.on("connection success", (response) => {
   console.log(response);
-  socket.emit("join room", roomId || "KEDYYR3SC7bF0zStAAAB");
+  socket.emit("join room", roomId || "C8BVDtezmlrnUYFMAAAJ");
   requestRoleState();
 });
 
@@ -195,6 +211,7 @@ socket.on("update role state", (states) => {
       playerName: state.playerName,
     };
   });
+  console.log("updated role states");
 });
 
 socket.on("start game", () => {
@@ -205,6 +222,10 @@ socket.on("start game", () => {
 });
 socket.on("reset ready state", () => {
   starting.value = false;
+  playerInfo.readyState = false;
+  playerInfo.triggerOption = new TriggerOption();
+  playerInfo.role = new Role();
+  requestRoleState();
 });
 socket.on("show paused overlay", () => {
   paused.value = true;
@@ -218,6 +239,16 @@ socket.on("set muted", () => {
 });
 socket.on("set unmuted", () => {
   muted.value = false;
+});
+socket.on("show restart overlay", () => {
+  restarting.value = true;
+});
+socket.on("hide restart overlay", () => {
+  restarting.value = false;
+});
+socket.on("quit to lobby", () => {
+  restarting.value = false;
+  setCurrentScreen(ScreenType.RoleSelection);
 });
 </script>
 

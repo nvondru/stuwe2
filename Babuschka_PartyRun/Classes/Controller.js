@@ -43,6 +43,8 @@ class Controller {
       new SocketEvent("player disconnected", this.playerInfo),
       this
     );
+
+    // this.room.updateRoles();
     this.room.unsubscribeController(this);
   }
 
@@ -183,27 +185,47 @@ class Controller {
           controller.socket.emit("hide paused overlay");
         }
       });
+
+      this.room.emitTo(
+        this.room.controllers,
+        new SocketEvent("hide restart overlay", {}),
+        this
+      );
+    });
+
+    this.socket.on("request quit to lobby", () => {
+      this.room.resetReadyState();
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("quit to lobby", {}),
+        this
+      );
+      this.room.emitTo(
+        this.room.controllers,
+        new SocketEvent("quit to lobby", {}),
+        this
+      );
     });
 
     this.socket.on("jump", () => {
       this.room.emitTo(this.room.viewers, new SocketEvent("jump", {}), this);
     });
 
-    // this.socket.on("shoot charge", () => {
-    //   this.room.emitTo(
-    //     this.room.viewers,
-    //     new SocketEvent("shoot charge", {}),
-    //     this
-    //   );
-    // });
+    this.socket.on("shotCharge", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("shoot charge", {}),
+        this
+      );
+    });
 
-    // this.socket.on("shoot release", () => {
-    //   this.room.emitTo(
-    //     this.room.viewers,
-    //     new SocketEvent("shoot release", {}),
-    //     this
-    //   );
-    // });
+    this.socket.on("shotRelease", () => {
+      this.room.emitTo(
+        this.room.viewers,
+        new SocketEvent("shoot release", {}),
+        this
+      );
+    });
   }
 }
 

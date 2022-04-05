@@ -101,21 +101,31 @@ class Room {
   startGame() {
     this.emitTo(this.viewers, new SocketEvent("start game", {}), this);
     this.emitTo(this.controllers, new SocketEvent("start game", {}), this);
-    this.resetReadyState();
   }
   resetReadyState() {
     this.controllers.forEach((controller) => {
       controller.playerInfo.readyState = false;
+      controller.playerInfo.role = "";
+      controller.playerInfo.triggerOption = "";
     });
 
-    setTimeout(() => {
-      this.emitTo(this.viewers, new SocketEvent("reset ready state", {}), this);
-      this.emitTo(
-        this.controllers,
-        new SocketEvent("reset ready state", {}),
-        this
-      );
-    }, 5000);
+    this.roles.forEach((role) => {
+      role.selected = false;
+      role.playerName = "";
+    });
+
+    // setTimeout(() => {
+    this.emitTo(
+      this.viewers,
+      new SocketEvent("init role state", { roles: this.roles }),
+      this
+    );
+    this.emitTo(
+      this.controllers,
+      new SocketEvent("reset ready state", {}),
+      this
+    );
+    // }, 5000);
   }
 }
 

@@ -16,14 +16,61 @@
       class="icon voice"
     ></div>
   </div>
+
+  <!-- <div class="test">Permission granted: {{ props.permissionGranted }}</div> -->
 </template>
 
 <script setup>
 //Classes
+import { ref } from "@vue/reactivity";
 import TriggerOption from "../../classes/TriggerOption.js";
+
 let props = defineProps({
   triggerOption: Object,
+  permissionGranted: Object,
 });
+
+let emit = defineEmits(["trigger"]);
+
+// if (props.triggerOption.value.option == TriggerOption.Shake.option) {
+//   addShakeHandler();
+// }
+
+let addShakeHandler = () => {
+  // Position variables
+  var x1 = 0,
+    y1 = 0,
+    x2 = 0,
+    y2 = 0,
+    z1 = 0,
+    z2 = 0;
+
+  var sensitivity = 20;
+  window.addEventListener(
+    "devicemotion",
+    function (e) {
+      x1 = e.accelerationIncludingGravity.x;
+      y1 = e.accelerationIncludingGravity.y;
+      z1 = e.accelerationIncludingGravity.z;
+    },
+    false
+  );
+
+  // Periodically check the position and fire
+  // if the change is greater than the sensitivity
+  setInterval(function () {
+    let change = Math.abs(x1 - x2 + y1 - y2 + z1 - z2);
+
+    if (change > sensitivity) {
+      emit("trigger");
+    }
+
+    // Update new position
+    x2 = x1;
+    y2 = y1;
+    z2 = z1;
+  }, 10);
+};
 </script>
 
 <style scoped>
@@ -56,5 +103,11 @@ let props = defineProps({
 
 .voice {
   background-image: url("../../assets/voice.svg");
+}
+.test {
+  font-size: 1rem;
+  color: lime;
+  position: absolute;
+  top: 10px;
 }
 </style>

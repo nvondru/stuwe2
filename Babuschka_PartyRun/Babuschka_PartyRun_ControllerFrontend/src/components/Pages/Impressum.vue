@@ -15,7 +15,7 @@
       <h3>Nicolas Vondru</h3>
     </div>
     <div class="imgWrapper">
-      <img src="../../assets/owl.png" alt="" />
+      <img src="../../assets/rick_astley.png" alt="" />
     </div>
   </div>
 </template>

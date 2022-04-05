@@ -6,6 +6,21 @@
     <h1>Game paused...</h1>
   </div>
 
+  <div v-if="props.restarting" id="pausedOverlay">
+    <img
+      class="icon"
+      src="../../assets/quit.svg"
+      alt=""
+      @click="$emit('quit_to_lobby')"
+    />
+    <img
+      class="icon"
+      src="../../assets/refresh.svg"
+      alt=""
+      @click="$emit('restart_level')"
+    />
+  </div>
+
   <HeaderBar
     :screenType="ScreenType.Gameplay"
     @handle_btn_options="$emit('show_options')"
@@ -18,7 +33,9 @@
     </div>
     <ControlElement
       @click="handle_control_element"
+      @trigger="$emit('handle_trigger')"
       :triggerOption="props.playerInfo.triggerOption"
+      :permissionGranted="props.permissionGranted"
     />
   </div>
 </template>
@@ -38,6 +55,8 @@ import ControlElement from "../Modules/ControlElement.vue";
 let props = defineProps({
   playerInfo: Object,
   paused: Object,
+  restarting: Object,
+  permissionGranted: Object,
 });
 
 let emit = defineEmits(["handle_trigger"]);
@@ -121,7 +140,7 @@ h3 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url("../../assets/background_default.png");
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -130,5 +149,8 @@ h3 {
 
 #pausedOverlay h1 {
   color: rgb(37, 37, 37);
+}
+.icon {
+  height: 30%;
 }
 </style>

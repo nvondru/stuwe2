@@ -22,6 +22,14 @@ class Viewer {
         this
       );
     });
+
+    this.socket.on("show restart overlay", () => {
+      this.room.emitTo(
+        this.room.controllers,
+        new SocketEvent("show restart overlay", {}),
+        this
+      );
+    });
   }
 }
 

@@ -1105,6 +1105,7 @@ const _sfc_main = {
     });
     socket.on("quit to lobby", () => {
       restarting.value = false;
+      starting.value = false;
       setCurrentScreen(ScreenType.RoleSelection);
     });
     return (_ctx, _cache) => {

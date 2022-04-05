@@ -248,6 +248,8 @@ socket.on("hide restart overlay", () => {
 });
 socket.on("quit to lobby", () => {
   restarting.value = false;
+  starting.value = false;
+
   setCurrentScreen(ScreenType.RoleSelection);
 });
 </script>
